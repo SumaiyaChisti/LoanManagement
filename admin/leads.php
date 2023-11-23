@@ -30,7 +30,7 @@ if(isset($_POST['submit']))
       
       //$q = "INSERT INTO `leads`(`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Custome_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimun_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('$_POST[Reference_Number]','$_POST[Campaign_Name]','$_POST[Customer_Name]','$_POST[State]','$_POST[City]','$_POST[Pin_Code]','$_POST[Customer_Contact_Number]','$_POST[Customer_Email_ID]','$_POST[Cibil]','$_POST[Report]','$_POST[Annual_Income]','$_POST[Max_Loan_Amount]','$_POST[Min_Loan_Amount]','$_POST[Pan_ID]','$_POST[Processing_Fee]','$_POST[Tenure]','$_POST[Minimum_Tenure]','$_POST[Lead_Status]','$_POST[FollowUp_Date]','$_POST[Comments]','$_POST[Phone_Call]','$_POST[LINK_TO_CUSTOMER]','$_POST[HIT_API]')";
       
-      $q = "INSERT INTO `leads`(`sno`,`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Customer_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimum_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('".implode("','",$data1). "')";
+      $q = "INSERT INTO `leads`(`sno`,`Date`,`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Customer_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimum_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('".implode("','",$data1). "')";
       $d = mysqli_query($conn,$q);
       
       }
@@ -131,13 +131,15 @@ error_reporting(0);
     <h3>View Leads</h3>
     
    <br>
-   <br>
-  
+   
+  <br>
     <!-- Button trigger modal -->
     <a class="btn btn-warning " href="components/sample_lead.xlsx">Download Sample File</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Import
 </button>
+<br>
+<br>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -162,10 +164,11 @@ error_reporting(0);
     </div>
   </div>
 </div>
-    <table class="table  table-responsive">
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
     <th>Id</th>
+    <th>Date</th>
     <th>Refrence Number</th>
     <th>Campaign Name</th>
     <th>Customer Name</th>
@@ -207,6 +210,7 @@ while($data=mysqli_fetch_assoc($d))
     echo '<tr>
           <td>'.$sno.'</td>
           <td>'.$data['id'].'</td>
+          <td>'.$data['Date'].'</td>
           <td>'.$data['Reference_Number'].'</td>
           <td>'.$data['Campaign_Name'].'</td>
           <td>'.$data['Customer_Name'].'</td>
@@ -231,9 +235,8 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
 
-         
-         <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><a class="btn btn-primary" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+        
+         <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }

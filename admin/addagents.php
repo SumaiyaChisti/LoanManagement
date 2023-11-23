@@ -2,8 +2,7 @@
 <?php
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-  
-    $q = "INSERT INTO `agents`(`name`,`email`,`contact`,`team_leader`,`manager`,`branch_manager`,`sales_manager`,`zonalsales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[contact]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[sales_manager]','$_POST[zonalsales_manager]','$_POST[campaign]')";
+    $q = "INSERT INTO `agents`(`name`,`email`,`contact`,`password`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[sales_manager]','$_POST[zonalsales_manager]','$_POST[campaign]')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -127,6 +126,10 @@ if(isset($_POST['submit'])) {
     <div class="form-outline mt-4">
   <input type="email" id="formControlLg" name="email"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Email</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" id="formControlLg" name="password"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg">Password</label>
     </div>
     <div class="form-outline mt-4">
   <input type="tel" id="formControlLg" name="contact"  class="form-control form-control-lg" required />

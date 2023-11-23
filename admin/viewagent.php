@@ -83,12 +83,15 @@ if(isset($_POST['submit'])) {
          include("components/header.php");
          error_reporting(0);
          ?>
+        
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
-        <main style="margin-top: 58px">
+        <main >
   <div class="container pt-4">
     <h3>View Agents</h3>
-    <table class="table  table-responsive">
+    <br>
+    <br>
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>Sno</th>
     <th>Id</th>

@@ -15,13 +15,12 @@ if(isset($_POST['submit']))
     $team_leader = $_POST['team_leader'];
     $manager = $_POST['manager'];
     $branch_manager = $_POST['branch_manager'];
-    $sales_manager = $_POST['sales_manager'];
-    $zonalsales_manager = $_POST['zonalsales_manager'];
-    $zonal_manager = $_POST['zonal_manager'];
+    $sales_manager = $_POST['area_sales_manager'];
+    $zonalsales_manager = $_POST['zonal_sales_manager'];
     $campaign = $_POST['campaign'];
 
     
-    $q="UPDATE `agents` SET `name`='$name',`email`='$email',`contact`='$contact',`team_leader`='$team_leader',`manager`='$manager',`branch_manager`='$branch_manager',`sales_manager`='$sales_manager',`zonalsales_manager`='$zonalsales_manager',`zonal_manager`='$zonal_manager',`campaign`='$campaign'   WHERE `id`='$_GET[id]'";
+    $q="UPDATE `agents` SET `name`='$name',`email`='$email',`contact`='$contact',`team_leader`='$team_leader',`manager`='$manager',`branch_manager`='$branch_manager',`area_sales_manager`='$area_sales_manager',`zonal-sales_manager`='$zonal_sales_manager',`campaign`='$campaign'   WHERE `id`='$_GET[id]'";
     $d= mysqli_query($conn, $q);
     if ($d){
     echo "<script>alert('Updated Successfully');</script>";
@@ -137,17 +136,12 @@ if(isset($_POST['submit']))
   <label class="form-label" for="formControlLg"> Branch Manager</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['sales_manager'];?>" id="formControlLg" name="sales_manager"  class="form-control form-control-lg" required />
+  <input type="text" value="<?php echo $DATA['area_sales_manager'];?>" id="formControlLg" name="sales_manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Area Sales Manager</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['zonalsales_manager'];?>" id="formControlLg" name="zonalsales_manager"  class="form-control form-control-lg" required />
+  <input type="text" value="<?php echo $DATA['zonal_sales_manager'];?>" id="formControlLg" name="zonalsales_manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Zonal Sales Manager</label>
-
-    </div>
-    <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['zonal_manager'];?>" id="formControlLg" name="zonal_manager"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg"> Zonal Manager</label>
 
     </div>
     <div class="form-outline mt-4">

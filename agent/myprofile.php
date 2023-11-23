@@ -1,50 +1,39 @@
 
 <?php
 include("components/conn.php");
-if(isset($_POST['submit'])) {
+session_start();
+if(isset($_SESSION['agent'])){
+    $Q="SELECT * FROM `agents` WHERE `email`='$_SESSION[agent]'";
+    $D=mysqli_query($conn,$Q) ;
+    $DATA=mysqli_fetch_assoc($D);
+}
+if(isset($_POST['submit']))
+{
   
-    $q = "INSERT INTO `users`(`name`,`email`,`password`,`role`,`city`,`state`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[role]','$_POST[city]','$_POST[state]')";
-    $d = mysqli_query($conn,$q);
-    if ($d) {
-        echo '
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header">
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $contact= $_POST['contact'];
+    $team_leader = $_POST['team_leader'];
+    $manager = $_POST['manager'];
+    $branch_manager = $_POST['branch_manager'];
+    $sales_manager = $_POST['area_sales_manager'];
+    $zonalsales_manager = $_POST['zonal_sales_manager'];
+    $campaign = $_POST['campaign'];
+
     
-    <strong class="me-auto">UrbanMoney</strong>
-    <small>11 mins ago</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-  <div class="toast-body">
-    Added successfully
-  </div>
-</div>
-</div>
-    ';
+    $q="UPDATE `agents` SET `name`='$name',`email`='$email',`contact`='$contact',`team_leader`='$team_leader',`manager`='$manager',`branch_manager`='$branch_manager',`area_sales_manager`='$area_sales_manager',`zonal-sales_manager`='$zonal_sales_manager',`campaign`='$campaign'   WHERE `id`='$_GET[id]'";
+    $d= mysqli_query($conn, $q);
+    if ($d){
+    echo "<script>alert('Updated Successfully');</script>";
+    header("refresh:1,viewagent.php");
     }
     else
-    {
-        echo '
-        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">UrbanMoney</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            Error while adding
-          </div>
-        </div>
-        </div>
-            ';
-    }
+        echo "data not inserted";
+    mysqli_close($conn);
+
 }
 
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +93,7 @@ if(isset($_POST['submit'])) {
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="logout.php">Logout</a>
+          <a href="javascript:;">Logout</a>
         </div>
         
       </div>
@@ -116,62 +105,74 @@ if(isset($_POST['submit'])) {
          include("components/header.php");
          ?>
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
-        <main class="content-wrapper">
+
+<!--Main layout-->
+<main class="content-wrapper">
   <div class="container pt-4">
-    <h3>Add Staff</h3>
+    <h3>Update Details</h3>
     <form enctype="multipart/form-data" action="" method="post">
   <div class="form-outline mt-4">
-  <input type="text" id="formControlLg" name="name"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Name</label>
+  <input type="text" value="<?php echo $DATA['name'];?>" id="formControlLg" name="name"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Name</label>
     </div>
+
     <div class="form-outline mt-4">
-  <input type="email" id="formControlLg" name="email"  class="form-control form-control-lg" required />
+  <input type="email"  value="<?php echo $DATA['email'];?>" id="formControlLg" name="email" class="form-control form-control-lg"  required/>
   <label class="form-label" for="formControlLg">Email</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="password" id="formControlLg" name="password"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Password</label>
+  <input type="tel" value="<?php echo $DATA['contact'];?>" id="formControlLg" name="contact"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Contact</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['team_leader'];?>" id="formControlLg" name="team_leader"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Team leader</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['manager'];?>" id="formControlLg" name="manager"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Manager</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['branch_manager'];?>" id="formControlLg" name="branch_manager"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Branch Manager</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['area_sales_manager'];?>" id="formControlLg" name="sales_manager"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Area Sales Manager</label>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['zonal_sales_manager'];?>" id="formControlLg" name="zonalsales_manager"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Zonal Sales Manager</label>
+
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" value="<?php echo $DATA['campaign'];?>" id="formControlLg" name="campaign"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg"> Campaign</label>
+
     </div>
     
-    
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">Password</label>
-  <select  id="formControlLg" name="role" class="form-select form-control-lg"  required>
-  <option value="">Role</option> 
-  <option value="Team_Leader">Team Leader</option>
-   <option value="Manager">Manager</option>
-   <option value="Branch_Manager">Branch Manager</option>
-   <option value="Area_Sales_Manager">Area Sales Manager</option>
-   <option value="Zonal_Sales_Manager">Zonal Sales Manager</option>
-  </select>
- 
-    </div>
 
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">State</label>
-    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
-
-      </select>
- 
-    </div>
-    
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">City</label>
-      <select id ="state" name="city" class="form-select" required></select>
-    </div>
-
-   
 <div class="form-outline mt-4">
-  <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Add" />
+  <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Update" />
  
     </div>
-    
     </form>
-         </div>
-         </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 </main>
-<!--Main layout-->
-          
 
 
 
@@ -180,13 +181,13 @@ if(isset($_POST['submit'])) {
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
 ></script>
-<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- plugins:js -->
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="assets/vendors/chartjs/Chart.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <script src="../all_states/cities.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="assets/js/material.js"></script>
@@ -194,10 +195,10 @@ if(isset($_POST['submit'])) {
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
+  <!-- End custom js for this page-->
 
 <script>
     toast.show();
-
 </script>
-<script language="javascript">print_state("sts");</script>
+
 </html>

@@ -11,6 +11,16 @@ if(isset($_POST['submit']))
         $_SESSION['admin']=$email;
         header("location:index.php");
     }
+    else if( $d=mysqli_query($conn,"SELECT * FROM `agents` WHERE `email`='$email' AND `password`='$password'"))
+    {
+      $_SESSION['agent']=$email;
+        header("location:../agent/index.php");
+    }
+    else if( $d=mysqli_query($conn,"SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password' AND`role`='manager'"))
+    {
+      $_SESSION["manager"]=$email;
+      header("location:index.php");
+    }
     else
     echo'<script>alert("wrong email or password");</script>';
 }

@@ -3,7 +3,7 @@
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `users`(`name`,`email`,`role`,)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]')";
+    $q = "INSERT INTO `users`(`name`,`email`,`role`,`state`,`city`)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]','$_POST[state]','$_POST[city]')";
     $d = mysqli_query($conn,$q);
     
 }
@@ -85,16 +85,19 @@ if(isset($_POST['submit'])) {
          ?>
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
-        <main style="margin-top: 58px">
+        <main >
   <div class="container pt-4">
-    <h3>View Agents</h3>
-    <table class="table  table-responsive " >
+    <h3>View Staff</h3>
+    <br>
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
 <tr>
   
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
     <th>Role</th>
+    <th>State</th>
+    <th>City</th>
     
 
     <th colspan="2">Options</th>
@@ -115,6 +118,9 @@ while($data=mysqli_fetch_assoc($d))
           <td>'.$data['name'].'</td>
           <td>'.$data['email'].'</td>
           <td>'.$data['role'].'</td>
+          <td>'.$data['state'].'</td>
+          <td>'.$data['city'].'</td>
+         
          
          
          <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>

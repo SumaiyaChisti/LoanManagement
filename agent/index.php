@@ -1,6 +1,7 @@
 <?php
 include("components/conn.php");
-
+session_start();
+if (isset($_SESSION["agent"])) {
 
 ?>
 
@@ -350,3 +351,9 @@ include("components/conn.php");
   <!-- End custom js for this page-->
 </body>
 </html> 
+<?php
+}
+else{
+  header("location: ../admin/login.php");
+}
+?>

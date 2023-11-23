@@ -85,7 +85,7 @@ if(isset($_POST['submit'])) {
         <main style="margin-top: 58px">
   <div class="container pt-4">
     <h3>New Leads</h3>
-    <table class="table  table-responsive">
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
     <th>Id</th>
@@ -115,7 +115,7 @@ if(isset($_POST['submit'])) {
 
 
 
-    <th colspan="2">Options</th>
+    <th colspan="2">Option</th>
     
 </tr>
 
@@ -154,9 +154,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
 
-         
-         <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><a class="btn btn-primary" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         <td><a class="btn btn-light" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }
