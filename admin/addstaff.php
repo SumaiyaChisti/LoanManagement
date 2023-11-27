@@ -135,7 +135,7 @@ if(isset($_POST['submit'])) {
     
     
     <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">Password</label>
+    <label class="form-label" for="formControlLg">Role</label>
   <select  id="formControlLg" name="role" class="form-select form-control-lg"  required>
   <option value="">Role</option> 
   <option value="Team_Leader">Team Leader</option>

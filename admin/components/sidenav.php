@@ -78,7 +78,7 @@
                     </a>
                   </div>
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="leads.php">
+                    <a class="mdc-drawer-link" href="viewleads.php">
                       Leads
                     </a>
                   </div>

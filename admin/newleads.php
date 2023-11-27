@@ -42,6 +42,10 @@ if(isset($_POST['submit'])) {
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
   rel="stylesheet"
 />
+<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+
+
 </head>
 
 <body>
@@ -68,7 +72,7 @@ if(isset($_POST['submit'])) {
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="javascript:;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
         
       </div>
@@ -82,9 +86,10 @@ if(isset($_POST['submit'])) {
          ?>
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
-        <main style="margin-top: 58px">
+        <main style="">
   <div class="container pt-4">
     <h3>New Leads</h3>
+    <br>
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>

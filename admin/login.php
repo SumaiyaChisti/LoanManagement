@@ -66,7 +66,7 @@ if(isset($_POST['submit']))
           <div class="p-5 login-section">
             <!-- <img src="" alt="Small Logo" class="img-fluid rounded mb-3" /> -->
 
-            <h2 class="text-start text-success mb-4">Admin Login</h2>
+            <h2 class="text-start text-success mb-4">Login</h2>
 
             <!-- Email Input -->
             <div class="form-group">
@@ -89,10 +89,18 @@ if(isset($_POST['submit']))
                 name="password"
                 placeholder="Enter your password" />
             </div>
+            <div class="form-group mb-4">
+            <div class="d-flex justify-content-between">
+              <a href="forgot">
+                <small>Forgot Password?</small>
+              </a>
+    </div>
+            </div>
 
             <!-- Login Button -->
             
-            <input type="submit" name="submit" value="login" class="btn py-2 btn-success btn-block">
+            <input type="submit" name="submit" value="Login" class="btn py-2 btn-success btn-block">
+            
     </form>
           </div>
         </div>

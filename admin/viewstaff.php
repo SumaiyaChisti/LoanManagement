@@ -71,7 +71,7 @@ if(isset($_POST['submit'])) {
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="javascript:;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
         
       </div>
@@ -124,7 +124,7 @@ while($data=mysqli_fetch_assoc($d))
          
          
          <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><a class="btn btn-primary" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         <td><a class="btn btn-primary" href="deletestaff.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }

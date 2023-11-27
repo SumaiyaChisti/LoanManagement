@@ -3,7 +3,7 @@
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `agents`(`name`,`email`,`contact`,`team_leader`,`manager`,`branch_manager`,`sales_manager`,`zonalsales_manager`,`zonal_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[contact]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[sales_manager]','$_POST[zonalsales_manager]','$_POST[zonal_manager]','$_POST[campaign]')";
+    $q = "INSERT INTO `users`(`name`,`email`,`role`,`state`,`city`)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]','$_POST[state]','$_POST[city]')";
     $d = mysqli_query($conn,$q);
     
 }
@@ -83,29 +83,22 @@ if(isset($_POST['submit'])) {
          include("components/header.php");
          error_reporting(0);
          ?>
-        
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
         <main >
   <div class="container pt-4">
-    <h3>View Agents</h3>
+    <h3>View Leads</h3>
     <br>
-    
-    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
 <tr>
-  <th>Sno</th>
+  
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
-    <th>Contact</th>
-    <th>Team Leader</th>
-    <th>Manager</th>
-    <th>Branch Manager</th>
-    <th>Sales Manager</th>
-    <th>Zonal Sales Manager</th>
-    <th>Campaign</th>
+    
+    
 
-    <th colspan="2">Options</th>
+    <th colspan="2">View</th>
     
 </tr>
 
@@ -118,21 +111,16 @@ while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
     echo '<tr>
-          <td>'.$sno.'</td>
+         
           <td>'.$data['id'].'</td>
           <td>'.$data['name'].'</td>
           <td>'.$data['email'].'</td>
-          <td>'.$data['contact'].'</td>
-         <td>'.$data['team_leader'].'</td>
-         <td>'.$data['manager'].'</td>
-         <td>'.$data['branch_manager'].'</td>
-         <td>'.$data['sales_manager'].'</td>
-         <td>'.$data['zonalsales_manager'].'</td>
-
-         <td>'.$data['campaign'].'</td>
+          
          
-         <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><a class="btn btn-primary" href="deleteagent.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         
+         
+         <td><a class="btn "href="leads.php?a_email='.$data['email'].'"><i class="fa-solid fa-eye"></i></a></td>
+         
          
      </tr>';
 }

@@ -92,7 +92,7 @@ if(isset($_POST['submit']))
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="javascript:;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
         
       </div>

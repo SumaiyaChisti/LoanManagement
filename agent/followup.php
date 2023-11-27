@@ -1,32 +1,3 @@
-
-<?php
-include("components/conn.php");
-include("../vendor/autoload.php");
-
-
-if(isset($_POST['submit'])) 
-{
-
-      
-      //$q = "INSERT INTO `leads`(`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Custome_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimun_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('$_POST[Reference_Number]','$_POST[Campaign_Name]','$_POST[Customer_Name]','$_POST[State]','$_POST[City]','$_POST[Pin_Code]','$_POST[Customer_Contact_Number]','$_POST[Customer_Email_ID]','$_POST[Cibil]','$_POST[Report]','$_POST[Annual_Income]','$_POST[Max_Loan_Amount]','$_POST[Min_Loan_Amount]','$_POST[Pan_ID]','$_POST[Processing_Fee]','$_POST[Tenure]','$_POST[Minimum_Tenure]','$_POST[Lead_Status]','$_POST[FollowUp_Date]','$_POST[Comments]','$_POST[Phone_Call]','$_POST[LINK_TO_CUSTOMER]','$_POST[HIT_API]')";
-    
-      $q = "INSERT INTO `leads`(`Upload_Date`,`Upload_Time`,`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Customer_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimum_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('".implode("','",$data1). "')";
-      $d = mysqli_query($conn,$q);
-      
-      }
-
-
-
-
-
-    
-
-
-   
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,17 +80,43 @@ if(isset($_POST['submit']))
    
   
     <!-- Button trigger modal -->
-   
-<!-- Modal -->
+    <a class="btn btn-warning " href="components/sample_lead.xlsx">Download Sample File</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Import
+</button>
+<br>
+<br>
 
-      
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Import Leads</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form enctype="multipart/form-data"method="post">
+        <input type="file" name="file1" accept=".xlsx">
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="submit" class="btn btn-primary">Add</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
-<th>Agent Email</th>
   <th>S.no</th>
     <th>Id</th>
     <th>Upload Date</th>
     <th>Upload Time</th>
+    
     <th>Refrence Number</th>
     <th>Campaign Name</th>
     <th>Customer Name</th>
@@ -138,6 +135,7 @@ if(isset($_POST['submit']))
     <th>Tenure</th>
     <th>Minimun Tenure</th>
     <th>Lead Status</th>
+    <th>Status</th>
     <th>Follow Up Date</th>
     <th>Comments</th>
     <th>Phone Call</th>
@@ -152,14 +150,14 @@ if(isset($_POST['submit']))
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `leads`WHERE `Agent_Email`='$_GET[a_email]' ";
+$q = "SELECT * FROM `leads` WHERE  `Agent_Email` = '$_SESSION[agent]' AND `Lead_Status`= 'Followup'";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
     echo '<tr>
-    <td>'.$data['Agent_Email'].'</td>
+         
           <td>'.$sno.'</td>
           <td>'.$data['id'].'</td>
           <td>'.$data['Upload_Date'].'</td>
@@ -170,7 +168,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['State'].'</td>
          <td>'.$data['City'].'</td>
          <td>'.$data['Pin_Code'].'</td>
-         <td>'.$data['Customer_Contact_Number'].'</td>
+         <td>'.maskPhoneNumber($data['Customer_Contact_Number']).'</td>
          <td>'.$data['Customer_Email_ID'].'</td>
          <td>'.$data['Cibil'].'</td>
          <td>'.$data['Report'].'</td>
@@ -182,14 +180,27 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Tenure'].'</td>
          <td>'.$data['Minimum_Tenure'].'</td>
          <td>'.$data['Lead_Status'].'</td>
-         <td>'.$data['FollowUp_Date'].'</td>
+         <td><select name="status" onchange="change('.$data["id"].',this.value)">
+         <option>Select</option>
+         <option value="Not_interested">Not interested</option>
+         <option value"Ringing">Ringing</option>
+         <option value"Followup">Followup</option>
+         <option value"Switch_Off">Switch Off</option>
+         <option value"Wrong_number">Wrong number</option>
+         <option value"Disbursed">Disbursed</option>
+         <option value"Not_Eligible">Not Eligible</option>
+         <option value"Call_back_later">Call back later</option>
+         <option value"In_process">In process</option>
+         </select>
+         </td>
+         <td><input type="date"/></td>
          <td>'.$data['Comments'].'</td>
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
 
         
-         <td><a class="btn" href="deleteleads.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }
@@ -203,17 +214,23 @@ while($data=mysqli_fetch_assoc($d))
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-      <script> var table = new DataTable("table")</script>;
+      <script> var table = new DataTable("table"); </script>
 
 <!--Main layout-->
           
 
 
 
-          </body>
+         
           <?php
       include("components/footer.php");
       ?>
+
+
+
+
+
+
           <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
@@ -235,6 +252,38 @@ while($data=mysqli_fetch_assoc($d))
   <script src="assets/js/dashboard.js"></script>
   <!-- End custom js for this page-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  function change(Id,Status){
+ var data1 = {
+  id: Id,
+  status:Status
+};
+
+// Make the AJAX request
+$.ajax({
+  url: 'leadstatus.php',
+  type: 'POST',
+  // Set the content type if sending JSON data
+  data:data1, // Convert data to JSON string
+  success: function(response) {
+    if(response==='ok')
+    {
+window.location.reload();
+    }
+    // Handle the success response here
+    
+  },
+  error: function(xhr, status, error) {
+    // Handle errors here
+    console.log('Error: ' + error);
+  }
+}); 
+
+}
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>$('#myModal').on('shown.bs.modal', function () {
@@ -244,5 +293,5 @@ while($data=mysqli_fetch_assoc($d))
 <script>
     toast.show();
 </script>
-
+</body>
 </html>

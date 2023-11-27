@@ -93,7 +93,7 @@ if(isset($_POST['submit']))
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="javascript:;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
         
       </div>
@@ -109,53 +109,50 @@ if(isset($_POST['submit']))
 <!--Main layout-->
 <main class="content-wrapper">
   <div class="container pt-4">
-    <h3>Update Details</h3>
+    <h3>My Profile</h3>
     <form enctype="multipart/form-data" action="" method="post">
   <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['name'];?>" id="formControlLg" name="name"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['name'];?>" id="formControlLg" name="name"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Name</label>
     </div>
 
     <div class="form-outline mt-4">
-  <input type="email"  value="<?php echo $DATA['email'];?>" id="formControlLg" name="email" class="form-control form-control-lg"  required/>
+  <input type="email" readonly  value="<?php echo $DATA['email'];?>" id="formControlLg" name="email" class="form-control form-control-lg"  required/>
   <label class="form-label" for="formControlLg">Email</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="tel" value="<?php echo $DATA['contact'];?>" id="formControlLg" name="contact"  class="form-control form-control-lg" required />
+  <input type="tel" readonly value="<?php echo $DATA['contact'];?>" id="formControlLg" name="contact"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Contact</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['team_leader'];?>" id="formControlLg" name="team_leader"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['team_leader'];?>" id="formControlLg" name="team_leader"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Team leader</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['manager'];?>" id="formControlLg" name="manager"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['manager'];?>" id="formControlLg" name="manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Manager</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['branch_manager'];?>" id="formControlLg" name="branch_manager"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['branch_manager'];?>" id="formControlLg" name="branch_manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Branch Manager</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['area_sales_manager'];?>" id="formControlLg" name="sales_manager"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['area_sales_manager'];?>" id="formControlLg" name="sales_manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Area Sales Manager</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['zonal_sales_manager'];?>" id="formControlLg" name="zonalsales_manager"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['zonal_sales_manager'];?>" id="formControlLg" name="zonalsales_manager"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Zonal Sales Manager</label>
 
     </div>
     <div class="form-outline mt-4">
-  <input type="text" value="<?php echo $DATA['campaign'];?>" id="formControlLg" name="campaign"  class="form-control form-control-lg" required />
+  <input type="text" readonly value="<?php echo $DATA['campaign'];?>" id="formControlLg" name="campaign"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg"> Campaign</label>
 
     </div>
     
 
-<div class="form-outline mt-4">
-  <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Update" />
- 
-    </div>
+
     </form>
    
 

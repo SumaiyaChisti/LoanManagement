@@ -39,14 +39,15 @@
               </a>
               <div class="mdc-expansion-panel" id="uiz-sub-menu">
                 <nav class="mdc-list mdc-drawer-submenu">
+                  
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="newleads.php">
-                      New Leads
+                    <a class="mdc-drawer-link" href="leadagent.php">
+                      My Leads
                     </a>
                   </div>
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="leads.php">
-                      Leads
+                    <a class="mdc-drawer-link" href="newleads.php">
+                      New Leads
                     </a>
                   </div>
                 </nav>
@@ -61,7 +62,7 @@
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="pages/tables/basic-tables.html">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
-                Table
+                Follow Up
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">

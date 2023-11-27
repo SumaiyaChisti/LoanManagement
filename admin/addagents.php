@@ -2,7 +2,7 @@
 <?php
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `agents`(`name`,`email`,`contact`,`password`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[sales_manager]','$_POST[zonalsales_manager]','$_POST[campaign]')";
+    $q = "INSERT INTO `agents`(`name`,`email`,`password`,`contact`,`state`,`city`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[state]','$_POST[city]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[sales_manager]','$_POST[zonalsales_manager]','$_POST[campaign]')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -103,7 +103,7 @@ if(isset($_POST['submit'])) {
         <div class="profile-actions">
           <a href="javascript:;">Settings</a>
           <span class="divider"></span>
-          <a href="javascript:;">Logout</a>
+          <a href="logout.php">Logout</a>
         </div>
         
       </div>
@@ -134,6 +134,18 @@ if(isset($_POST['submit'])) {
     <div class="form-outline mt-4">
   <input type="tel" id="formControlLg" name="contact"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Phone no</label>
+    </div>
+    <div class="form-outline mt-4">
+    <label class="form-label" for="formControlLg">State</label>
+    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
+
+      </select>
+ 
+    </div>
+    
+    <div class="form-outline mt-4">
+    <label class="form-label" for="formControlLg">City</label>
+      <select id ="state" name="city" class="form-select" required></select>
     </div>
     <div class="form-outline mt-4">
   <input type="text" id="formControlLg" name="campaign"  class="form-control form-control-lg" required />
@@ -241,6 +253,7 @@ if(isset($_POST['submit'])) {
   <script src="assets/vendors/chartjs/Chart.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="../all_states/cities.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="assets/js/material.js"></script>
@@ -248,9 +261,10 @@ if(isset($_POST['submit'])) {
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
+  <script language="javascript">print_state("sts");</script>
 
 <script>
-    toast.show();
+   // toast.show();
 </script>
 
 </html>
