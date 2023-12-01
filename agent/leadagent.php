@@ -253,7 +253,7 @@ while($data=mysqli_fetch_assoc($d))
          <option value"In_process">In process</option>
          </select>
          </td>
-         <td><input type="date"/></td>
+         <td><input type="date" name="date" id="date"/></td>
          <td>'.$data['Comments'].'</td>
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
