@@ -134,7 +134,7 @@ error_reporting(0);
         <main class="content-wrapper">
         <main >
   <div class="container pt-4" >
-    <h3>View Leads</h3>
+    <h3 style="font-family: fancy monospace;" >View Leads</h3>
     
    <br>
    
@@ -314,6 +314,8 @@ while($data=mysqli_fetch_assoc($d))
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+
+    
   function change(Id,Status){
  var data1 = {
   id: Id,

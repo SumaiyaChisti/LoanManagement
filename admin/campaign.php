@@ -71,7 +71,7 @@
           <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
   <div class="container pt-4">
-    <h3 style="margin-left:23rem; margin-top: 2rem; " >Campaign</h3>
+    <h3 style="margin-left:23rem; margin-top: 2rem; font-family: fancy monospace; " >Campaign</h3>
     <div style="margin-top: 5rem; margin-left: 5rem; " >
     <a class="btn btn-warning " href="addcampaign.php" ><i class="fa-solid fa-plus">&nbsp;Add New Product</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a class="btn btn-warning " href=""><i class="fa-solid fa-pen-to-square">&nbsp; Rename Campaign</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

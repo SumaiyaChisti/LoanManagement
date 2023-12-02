@@ -78,11 +78,12 @@
           <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
   <div class="container pt-4">
-    <h3 style="margin-left:23rem; margin-top: 2rem; " > Add Campaign</h3>
+    <h3 style="margin-left:23rem; margin-top: 1rem; font-family: fancy monospace; " > Edit Campaign</h3>
+    <div style="margin-top:2rem">
     <table class="table  table-striped table-bordered table-hover " style=" border: 1px solid white;">
     <tr>
         <th class="text-info">Campain Fields</th>
-        <th class="text-info">Enable/Disable</th>
+        <th colspan="2" class="text-info">Enable/Disable</th>
     </tr>
     
     <tr>
@@ -90,156 +91,96 @@
    
   </tr>
   <tr>
-    <th>Refrence Number</th>
-    <td><div class="form-check form-switch">
-  <input class="form-check-input bg-red" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable">
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <th>Reference Number</th>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Reference_Number',this.value);" class=" btn-outline-success btn btn-success ">enable</button> &nbsp;&nbsp;<button  value="<?php echo$_GET['a_email'] ?>"  onclick="Disable1('Reference_Number',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
-    <th>Customer Name</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <th>Customer Name</th> 
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Customer_Name',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"  onclick="Disable1('Customer_Name',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td> 
+    
   </tr>
   <tr>
     <th>State</th>
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>  
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('State',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"  onclick="Disable1('State',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td> 
   </tr>
+
+  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Refrence_Number',this.value)"
   <tr>
     <th>City</th> 
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td> 
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('City',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('City',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Pin Code</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Pin_Code',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Pin_Code',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Customer Contact Number</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Customer_Contact_Number',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Customer_Contact_Number',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Customer Email ID</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Customer_Email_ID',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Customer_Email_ID',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Annual Income</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Annual_Income',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Annual_Income',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Max Loan Amount</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Max_Loan_Amount',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Max_Loan_Amount_',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Min Loan Amount</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Min_Loan_Amount',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Min_Loan_Amount',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Pan ID</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Pan_ID',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Pan_ID',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Processing Fee</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Procressing_Fee',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Processing_Fee',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Tenure</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Tenure',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Tenure',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Minimun Tenure</th>
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>  
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Minimum_Tenure',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Minimum_Tenure',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Lead Status</th>
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>  
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Lead_Status',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Lead_Status',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
 
   <tr>
     <th>Followup Date</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Followup_Date',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Followup_Date',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Comments</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Comments',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Comments',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Call</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Call',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp;<button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Call',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Link to Customer</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Link_to_Customer',this.value);"class="btn btn-success btn-outline-success">enable</button> &nbsp;&nbsp;<button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Link_To_Customer',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>HIT API</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"  class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable">
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button  value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('HIT_API',this.value);"class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('HIT_API',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
   <tr>
     <th>Mail to</th>  
-    <td><div class="form-check form-switch">
-  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"  class="btn btn-secondary"data-toggle="tooltip" data-placement="top" title="Enable/Disable" >
-  <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-</div></td>
+    <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('Mail_to',this.value);" class="btn btn-success btn-outline-success">enable</button> &nbsp;&nbsp;<button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Mail_to',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>
   </tr>
  
     </table>
-    <tr>
+    </div>
 
 </main>
 
@@ -311,6 +252,61 @@ window.location.reload();
 
 }
 
+function Enable1(fieldname,tablename){
+  console.log(fieldname,tablename);
+  data1={
+  'tablename':tablename,
+  'fieldname':fieldname,
+  'status':'enable'
+}
+  $.ajax({
+  url: 'altertable.php',
+  type: 'POST',
+  // Set the content type if sending JSON data
+  data:data1, // Convert data to JSON string
+  success: function(response) {
+    if(response==='ok')
+    {
+window.location.reload();
+    }
+    // Handle the success response here
+    
+  },
+  error: function(xhr, status, error) {
+    // Handle errors here
+    console.log('Error: ' + error);
+  }
+}); 
+
+}
+function Disable1(fieldname,tablename){
+  console.log(fieldname,tablename);
+data1={
+  'tablename':tablename,
+  'fieldname':fieldname,
+  'status':'disable'
+}
+
+  $.ajax({
+  url: 'altertable.php',
+  type: 'POST',
+  // Set the content type if sending JSON data
+  data:data1, // Convert data to JSON string
+  success: function(response) {
+    if(response==='ok')
+    {
+window.location.reload();
+    }
+    // Handle the success response here
+    
+  },
+  error: function(xhr, status, error) {
+    // Handle errors here
+    console.log('Error: ' + error);
+  }
+}); 
+
+}
 
 
 </script>

@@ -117,7 +117,7 @@ if(isset($_POST['submit'])) {
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
   <div class="container pt-4">
-    <h3>Add Agent</h3>
+    <h3 style="font-family: fancy monospace;" >Add Agent</h3>
     <form enctype="multipart/form-data" action="" method="post">
   <div class="form-outline mt-4">
   <input type="text" id="formControlLg" name="name"  class="form-control form-control-lg" required />

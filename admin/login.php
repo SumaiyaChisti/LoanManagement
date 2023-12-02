@@ -66,7 +66,7 @@ if(isset($_POST['submit']))
           <div class="p-5 login-section">
             <!-- <img src="" alt="Small Logo" class="img-fluid rounded mb-3" /> -->
 
-            <h2 class="text-start text-success mb-4">Login</h2>
+            <h2 class="text-start text-success mb-4" style="font-family: fancy monospace;" >Login</h2>
 
             <!-- Email Input -->
             <div class="form-group">

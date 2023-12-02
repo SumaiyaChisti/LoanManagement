@@ -78,13 +78,14 @@
           <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
   <div class="container pt-4">
-    <h3 style="margin-left:23rem; margin-top: 2rem; " > Add Campaign</h3>
+    <h3 style="margin-left:23rem; margin-top: 2rem; font-family:fancy monospace; " > Add Campaign</h3>
+    <div style="margin-top: 3rem;" >
     <table class="table  table-striped table-bordered table-hover " style=" border: 1px solid white;">
    
     
     <tr>
-    <th>Campaign Name</th>
-    <td><div class="form-outline mt-4">
+    <th style="font-size:larger" class="text-info" >Campaign Name</th>
+    <td><div class="form-outline mt-2">
       
   <input type="text" id="formControlLgbb" name="campaign_name"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLgbb">Campaign Name</label>
@@ -93,11 +94,12 @@
   </tr>
  
     </table>
-    <tr>
-  <td><div class="form-outline mt-4">
-  <button  onclick="change()" name="submit"  class="btn btn-primary form-control-lg">Submit</button>
+    </div>
+    <br>
+  <div>
+  <button  onclick="change()" name="submit"  class="btn btn-primary form-control-lg"><i class="fa-solid fa-plus">&nbsp;ADD</i></button>
  
- </div></td>
+ </div>
 </main>
 
 

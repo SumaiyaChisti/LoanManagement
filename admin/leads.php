@@ -103,7 +103,7 @@ if(isset($_POST['submit']))
         <main class="content-wrapper">
         <main >
   <div class="container pt-4" >
-    <h3>View Leads</h3>
+    <h3 style="font-family: fancy monospace;" >View Leads</h3>
     
    <br>
    

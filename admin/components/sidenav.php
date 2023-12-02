@@ -112,8 +112,8 @@
                     </a>
                   </div>
                   <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="editcampaign.php">
-                    Edit Campaign
+                    <a class="mdc-drawer-link" href="viewcampaign.php">
+                    View Campaign
                     </a>
                   </div>
                 </nav>

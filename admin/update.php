@@ -108,7 +108,7 @@ if(isset($_POST['submit']))
 <!--Main layout-->
 <main class="content-wrapper">
   <div class="container pt-4">
-    <h3>Update Details</h3>
+    <h3 style="font-family: fancy monospace;" >Update Details</h3>
     <form enctype="multipart/form-data" action="" method="post">
   <div class="form-outline mt-4">
   <input type="text" value="<?php echo $DATA['name'];?>" id="formControlLg" name="name"  class="form-control form-control-lg" required />
