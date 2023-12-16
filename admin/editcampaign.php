@@ -103,8 +103,6 @@
     <th>State</th>
     <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('State',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"  onclick="Disable1('State',this.value)" class="btn btn-danger btn-outline-danger">Disable</button></td> 
   </tr>
-
-  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('Refrence_Number',this.value)"
   <tr>
     <th>City</th> 
     <td><button value="<?php echo$_GET['a_email'] ?>"  onclick="Enable1('City',this.value);" class="btn btn-success btn-outline-success">enable</button>&nbsp;&nbsp; <button  value="<?php echo$_GET['a_email'] ?>"   onclick="Disable1('City',this.value)"class="btn btn-danger btn-outline-danger">Disable</button></td>

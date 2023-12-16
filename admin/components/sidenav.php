@@ -127,6 +127,28 @@
                &nbsp; Charts
               </a>
             </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui1-sub-menu">
+              <i class="fa-solid fa-user "></i>
+                  &nbsp; &nbsp; &nbsp;UM Utility
+                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+              </a>
+              <div class="mdc-expansion-panel" id="ui1-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="addutility.php">
+                      Add
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="viewutility.php">
+                      View
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            
             
             
           </nav>

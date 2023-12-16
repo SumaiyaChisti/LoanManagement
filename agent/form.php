@@ -151,12 +151,6 @@ if(isset($_POST['submit'])) {
   <input type="text" id="formControlLg" name="address"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Address</label>
     </div>
-     <div class="form-outline mt-4">
-  <input type="text" id="formControlLg" name="address"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Address</label>
-    </div>
-   
-
 
     <!-- <div class="form-outline mt-4"> 
     <label class="form-label" for="formControlLg">State</label>
@@ -258,43 +252,6 @@ if(isset($_POST['submit'])) {
     <div class="form-outline mt-4">
   <input type="text" id="formControlLg" name="terms_in"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Terms In(months)</label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div> <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div> <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div> <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
-    </div>
-    <div class="form-outline mt-4">
-    <input type="file" id="formControlLg" name="file1" class="form-control form-control-lg"  required/>
-  <label class="form-label" for="formControlLg"></label>
     </div>
 <div class="form-outline mt-4">
   <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Submit" />

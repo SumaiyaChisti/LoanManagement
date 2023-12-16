@@ -29,7 +29,7 @@
                   <span class="figure">
                     <img src="assets/images/faces/face1.jpg" alt="user" class="user">
                   </span>
-                  <span class="user-name">Admin</span>
+                  <span class="user-name">DSA</span>
                 </span>
               </button>
               <div class="mdc-menu mdc-menu-surface" tabindex="-1">

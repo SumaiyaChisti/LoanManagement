@@ -1,6 +1,13 @@
 
-
-
+<?php
+include("components/conn.php");
+if(isset($_POST['submit'])) {
+  
+    $q = "INSERT INTO `users`(`name`,`link`)VALUES ('$_POST[name]','$_POST[link]')";
+    $d = mysqli_query($conn,$q);
+    
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,60 +87,40 @@
         <main class="content-wrapper">
         <main >
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;" >View Campaign</h3>
+    <h3 style="font-family: fancy monospace;" >View UM LINKS</h3>
     <br>
-    <table class="table  table-responsive table-hover " >
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
 <tr>
   
     
-    <th>Campaign Name</th>
-    
-    <th></th>
-    <th></th>
-    
-
-    <th >View</th>
-    <th >Edit</th>
-    <th >Delete</th>
+    <th>Name</th>
+    <th>Link</th>
+   
+    <th>Options</th>
     
 </tr>
+
 <?php
-include('components/conn.php');
-$sql = "SHOW TABLES LIKE 'campaign%'";
-$result = $conn->query($sql);
-
-$tables = [];
-while ($row = $result->fetch_row()) {
-    $tables[] = $row[0];
-    
-
-}
-
-// Output table names
-
-foreach ($tables as $tableName) {
-    
-   // echo $tableName . "<br>";
-
-
-
-
+include("components/conn.php");
+$q = "SELECT * FROM `umutility`";
+$d=mysqli_query($conn, $q);
+$co=mysqli_num_rows($d);
+while($data=mysqli_fetch_assoc($d))
+{
   $sno=$sno+1;
     echo '<tr>
          
         
-          <td>'.$tableName.'</td>
-
-          
-         <td></td>
+          <td>'.$data['name'].'</td>
+          <td>'.$data['link'].'</td>
+        
          
-         <td></td>
-         <td><a class="btn "href="viewcampaigndetails.php?a_email='.$tableName.'"><i class="fa-solid fa-eye"></i></a></td>
-         <td><a class="btn "href="editcampaign.php?a_email='.$tableName.'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><button class="btn" value="'.$tableName.'" onclick="deletecampaign(this.value)"><i class="fa-solid fa-trash"></i></button></td>
+         
+         
+         <td><a class="btn btn-primary"href="updateutility.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
+         <td><a class="btn btn-primary" href="deleteutility.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
-
 }
 
 //echo"Total Number of rows are " .$co;
@@ -146,7 +133,9 @@ foreach ($tables as $tableName) {
 
 <!--Main layout-->
           
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script> var table = new DataTable("table")</script>
 
    
       
@@ -154,50 +143,6 @@ foreach ($tables as $tableName) {
           <?php
       include("components/footer.php");
       ?>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
-  <script>
-    
-function deletecampaign(tableName){
-    
-            var data1 = {
-        tableName:tableName
-    };
-    $.ajax({
-        
-  url: 'deletecampaign.php',
-  type: 'POST',
-  // Set the content type if sending JSON data
-  data:data1, // Convert data to JSON string
-  success: function(response) {
-    if(response==='ok')
-    {
-window.location.reload();
-    }
-    // Handle the success response here
-    
-  },
-  error: function(xhr, status, error) {
-    // Handle errors here
-    console.log('Error: ' + error);
-  }
-}); 
-
-}
-
-
-
-
-
- 
-            
-       
-</script>
-
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-      <script> var table = new DataTable("table")</script>
           <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
