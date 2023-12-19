@@ -20,6 +20,12 @@
                 Dashboard
               </a>
             </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="myteam.php">
+              <i class="fa-solid fa-user-group"></i>
+                &nbsp;&nbsp;&nbsp;My Team
+              </a>
+            </div>
            
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
@@ -61,6 +67,16 @@
                       View Staff
                     </a>
                   </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="adddesignation.php">
+                      Add Designation
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="viewdesignation.php">
+                      View Designation
+                    </a>
+                  </div>
                 </nav>
               </div>
             </div>
@@ -72,6 +88,11 @@
               </a>
               <div class="mdc-expansion-panel" id="uiz-sub-menu">
                 <nav class="mdc-list mdc-drawer-submenu">
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="pushleads.php">
+                      Push Leads
+                    </a>
+                  </div>
                 <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="viewleads.php">
                       Leads
@@ -92,6 +113,7 @@
                 &nbsp; Reports
               </a>
             </div>
+           
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="dsa.php" >
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>

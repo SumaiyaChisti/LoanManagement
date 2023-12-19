@@ -39,11 +39,7 @@
               </a>
               <div class="mdc-expansion-panel" id="uiz-sub-menu">
                 <nav class="mdc-list mdc-drawer-submenu">
-                <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pushleads.php">
-                      Push Leads
-                    </a>
-                  </div>
+                  
                   <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="leadagent.php">
                       My Leads

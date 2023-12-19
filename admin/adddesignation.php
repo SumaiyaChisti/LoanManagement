@@ -3,7 +3,7 @@
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `users`(`name`,`email`,`password`,`role`,`city`,`state`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[role]','$_POST[city]','$_POST[state]')";
+    $q = "INSERT INTO `designations`(`designation`,`priority`)VALUES ('$_POST[name]','$_POST[priority]')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -118,57 +118,18 @@ if(isset($_POST['submit'])) {
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;" >Add Staff</h3>
+    <h3 style="font-family: fancy monospace;" >Add Designation</h3>
     <form enctype="multipart/form-data" action="" method="post">
   <div class="form-outline mt-4">
   <input type="text" id="formControlLg" name="name"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Name</label>
+  <label class="form-label" for="formControlLg"> Designation Name</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="email" id="formControlLg" name="email"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Email</label>
+  <input type="number" max="6" min="1" id="formControlLg" name="priority"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg">Priority</label>
     </div>
-    <div class="form-outline mt-4">
-  <input type="password" id="formControlLg" name="password"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Password</label>
-    </div>
+   
     
-    
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">Role</label>
-  <select  id="formControlLg" name="role" class="form-select form-control-lg"  required>
-  <option value="">Select Role</option> 
- <?php
- include("components/conn.php");
-$q = "SELECT * FROM `designations`";
-$d=mysqli_query($conn, $q);
-$co=mysqli_num_rows($d);
-while($data=mysqli_fetch_assoc($d))
-{
-  $sno=$sno+1;
-    echo ' <option value="'.$data['designation'].'">'.$data['designation'].'</option>';
-  }
- 
- 
- 
- ?>
-  </select>
- 
-    </div>
-
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">State</label>
-    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
-
-      </select>
- 
-    </div>
-    
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">City</label>
-      <select id ="state" name="city" class="form-select" required></select>
-    </div>
-
    
 <div class="form-outline mt-4">
   <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Add" />

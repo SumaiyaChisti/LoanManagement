@@ -3,46 +3,10 @@
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `users`(`name`,`email`,`password`,`role`,`city`,`state`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[role]','$_POST[city]','$_POST[state]')";
+    $q = "INSERT INTO `users`(`name`,`email`,`role`,`state`,`city`)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]','$_POST[state]','$_POST[city]')";
     $d = mysqli_query($conn,$q);
-    if ($d) {
-        echo '
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header">
     
-    <strong class="me-auto">UrbanMoney</strong>
-    <small>11 mins ago</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-  <div class="toast-body">
-    Added successfully
-  </div>
-</div>
-</div>
-    ';
-    }
-    else
-    {
-        echo '
-        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <img src="..." class="rounded me-2" alt="...">
-            <strong class="me-auto">UrbanMoney</strong>
-            <small>11 mins ago</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            Error while adding
-          </div>
-        </div>
-        </div>
-            ';
-    }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +42,9 @@ if(isset($_POST['submit'])) {
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
   rel="stylesheet"
 />
+<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -114,88 +81,86 @@ if(isset($_POST['submit'])) {
       <!-- partial:partials/_navbar.html -->
       <?php
          include("components/header.php");
+         error_reporting(0);
          ?>
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
+        <main >
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;" >Add Staff</h3>
-    <form enctype="multipart/form-data" action="" method="post">
-  <div class="form-outline mt-4">
-  <input type="text" id="formControlLg" name="name"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Name</label>
-    </div>
-    <div class="form-outline mt-4">
-  <input type="email" id="formControlLg" name="email"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Email</label>
-    </div>
-    <div class="form-outline mt-4">
-  <input type="password" id="formControlLg" name="password"  class="form-control form-control-lg" required />
-  <label class="form-label" for="formControlLg">Password</label>
-    </div>
+    <h3 style="font-family: fancy monospace;" >View Designation</h3>
+    <br>
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
+<tr>
+  
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>State</th>
+    <th>City</th>
     
+
+    <th colspan="2">Options</th>
     
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">Role</label>
-  <select  id="formControlLg" name="role" class="form-select form-control-lg"  required>
-  <option value="">Select Role</option> 
- <?php
- include("components/conn.php");
-$q = "SELECT * FROM `designations`";
+</tr>
+
+<?php
+include("components/conn.php");
+$q = "SELECT * FROM `users`";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
-    echo ' <option value="'.$data['designation'].'">'.$data['designation'].'</option>';
-  }
- 
- 
- 
- ?>
-  </select>
- 
-    </div>
+    echo '<tr>
+         
+          <td>'.$data['id'].'</td>
+          <td>'.$data['name'].'</td>
+          <td>'.$data['email'].'</td>
+          <td>'.$data['role'].'</td>
+          <td>'.$data['state'].'</td>
+          <td>'.$data['city'].'</td>
+         
+         
+         
+         <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
+         <td><a class="btn btn-primary" href="deletestaff.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         
+     </tr>';
+}
 
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">State</label>
-    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
+//echo"Total Number of rows are " .$co;
+?>
 
-      </select>
- 
-    </div>
-    
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">City</label>
-      <select id ="state" name="city" class="form-select" required></select>
-    </div>
+</table>
+</div>
 
-   
-<div class="form-outline mt-4">
-  <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Add" />
- 
-    </div>
-    
-    </form>
-         </div>
-         </div>
 </main>
+
 <!--Main layout-->
           
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+      <script> var table = new DataTable("table")</script>
 
-
-
+   
+      
           </body>
+          <?php
+      include("components/footer.php");
+      ?>
           <script
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
 ></script>
-<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+
+  <!-- plugins:js -->
+  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="assets/vendors/chartjs/Chart.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <script src="../all_states/cities.js"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="assets/js/material.js"></script>
@@ -203,10 +168,12 @@ while($data=mysqli_fetch_assoc($d))
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
-
+  <!-- End custom js for this page-->
 <script>
     toast.show();
 
+
+
 </script>
-<script language="javascript">print_state("sts");</script>
+
 </html>

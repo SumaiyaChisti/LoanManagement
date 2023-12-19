@@ -159,7 +159,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
 
-         <td><a class="btn btn-light" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         <td><a class="btn btn-light" href="deleteleads.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }
