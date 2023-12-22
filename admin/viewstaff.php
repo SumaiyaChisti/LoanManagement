@@ -3,8 +3,8 @@
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `users`(`name`,`email`,`role`,`state`,`city`)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]','$_POST[state]','$_POST[city]')";
-    $d = mysqli_query($conn,$q);
+  $q = "INSERT INTO `staff`(`name`,`email`,`password`,`contact`,`state`,`city`,`role`,`group_team_leader`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[state]','$_POST[city]','$_POST[role]','$_POST[group_team_leader]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[area_sales_manager]','$_POST[zonal_sales_manager]','$_POST[campaign]')";
+  $d = mysqli_query($conn,$q);
     
 }
 ?>
@@ -83,22 +83,31 @@ if(isset($_POST['submit'])) {
          include("components/header.php");
          error_reporting(0);
          ?>
+        
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
         <main >
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;" >View Staff</h3>
+    <h3 style="font-family: fancy monospace;" >Staff</h3>
     <br>
-    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
+    
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
-  
+  <th>Sno</th>
     <th>Id</th>
     <th>Name</th>
     <th>Email</th>
-    <th>Role</th>
+    <th>Contact</th>
     <th>State</th>
     <th>City</th>
-    
+    <th>Role</th>
+    <th>Group Team Leader</th>
+    <th>Team Leader</th>
+    <th>Manager</th>
+    <th>Area Sales Manager</th>
+    <th>Branch Manager</th>
+    <th>Zonal Sales Manager</th>
+    <th>Campaign</th>
 
     <th colspan="2">Options</th>
     
@@ -106,32 +115,42 @@ if(isset($_POST['submit'])) {
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `users`";
+$q = "SELECT * FROM `staff`";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
     echo '<tr>
-         
+          <td>'.$sno.'</td>
           <td>'.$data['id'].'</td>
           <td>'.$data['name'].'</td>
           <td>'.$data['email'].'</td>
-          <td>'.$data['role'].'</td>
+          <td>'.$data['contact'].'</td>
           <td>'.$data['state'].'</td>
           <td>'.$data['city'].'</td>
-         
-         
+          <td>'.$data['role'].'</td>
+          <td>'.$data['group_team_leader'].'</td>
+         <td>'.$data['team_leader'].'</td>
+         <td>'.$data['manager'].'</td>
+         <td>'.$data['area_sales_manager'].'</td>
+         <td>'.$data['branch_manager'].'</td>
+       
+         <td>'.$data['zonal_sales_manager'].'</td>
+
+         <td>'.$data['campaign'].'</td>
          
          <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
-         <td><a class="btn btn-primary" href="deletestaff.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         <td><a class="btn btn-primary" href="deleteagent.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
-     </tr>';
+     </tr>
+     
+     ';
 }
 
 //echo"Total Number of rows are " .$co;
 ?>
-
+<div id="hello"></div>
 </table>
 </div>
 

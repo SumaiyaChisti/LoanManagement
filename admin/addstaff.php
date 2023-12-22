@@ -2,8 +2,7 @@
 <?php
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-  
-    $q = "INSERT INTO `users`(`name`,`email`,`password`,`role`,`city`,`state`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[role]','$_POST[city]','$_POST[state]')";
+    $q = "INSERT INTO `staff`(`name`,`email`,`password`,`contact`,`state`,`city`,`role`,`group_team_leader`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[state]','$_POST[city]','$_POST[role]','$_POST[group_team_leader]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[area_sales_manager]','$_POST[zonal_sales_manager]','$_POST[campaign]')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -12,7 +11,7 @@ if(isset($_POST['submit'])) {
   <div class="toast-header">
     
     <strong class="me-auto">UrbanMoney</strong>
-    <small>11 mins ago</small>
+    
     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div class="toast-body">
@@ -119,8 +118,9 @@ if(isset($_POST['submit'])) {
         <main class="content-wrapper">
   <div class="container pt-4">
     <h3 style="font-family: fancy monospace;" >Add Staff</h3>
-    <form enctype="multipart/form-data" action="" method="post">
-  <div class="form-outline mt-4">
+    <form enctype="multipart/form-data" action="" method="post">  
+         
+  <div class="form-outline mt-4">  
   <input type="text" id="formControlLg" name="name"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Name</label>
     </div>
@@ -129,14 +129,32 @@ if(isset($_POST['submit'])) {
   <label class="form-label" for="formControlLg">Email</label>
     </div>
     <div class="form-outline mt-4">
-  <input type="password" id="formControlLg" name="password"  class="form-control form-control-lg" required />
+  <input type="text" id="formControlLg" name="password"  class="form-control form-control-lg" required />
   <label class="form-label" for="formControlLg">Password</label>
     </div>
-    
+    <div class="form-outline mt-4">
+  <input type="tel" id="formControlLg" name="contact"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg">Phone no</label>
+    </div>
+    <div class="form-outline mt-4">
+    <label class="form-label" for="formControlLg">State</label>
+    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
+
+      </select>
+ 
+    </div>
     
     <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">Role</label>
-  <select  id="formControlLg" name="role" class="form-select form-control-lg"  required>
+    <label class="form-label" for="formControlLg">City</label>
+      <select id ="state" name="city" class="form-select" required></select>
+    </div>
+    <div class="form-outline mt-4">
+  <input type="text" id="formControlLg" name="campaign"  class="form-control form-control-lg" required />
+  <label class="form-label" for="formControlLg">Campaign Mapped To</label>
+    </div>
+    <div class="form-outline mt-4">
+  <label class="form-label" for="formControlLg">Role</label>
+  <select  id="formControlLg" name="role" class="form-select form-control-lg" onchange="change(this.value)" required>
   <option value="">Select Role</option> 
  <?php
  include("components/conn.php");
@@ -153,21 +171,97 @@ while($data=mysqli_fetch_assoc($d))
  
  ?>
   </select>
- 
+    </div>
+  
+  <div class="form-outline mt-4" id="a" >
+
+  <label class="form-label" for="formControlLg">Assigned to group team leader</label>
+  <select class="form-select" name="group_team_leader" id="">
+  <option value="">Select Option</option>
+   <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Group Team Leader'"); 
+    while($tl=mysqli_fetch_assoc($t))
+    echo'<option>'.$tl['name'].'</option>';
+    ?>
+  
+</select>
+
+
+  </div>
+    </div>
+    <div class="form-outline mt-4" id="b" >
+   <label class="form-label" for="formControlLg">Assigned to team leader</label>
+   <select class="form-select" name="team_leader" id="">
+   <option value="">Select Option</option>
+     <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Team Leader'"); 
+      while($tl=mysqli_fetch_assoc($t))
+      echo'<option>'.$tl['name'].'</option>';
+      ?>
+    
+  </select>
     </div>
 
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">State</label>
-    <select name="state" onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select" required></select>
 
-      </select>
- 
+    <div class="form-outline mt-4" id="c" >
+
+    <label class="form-label" for="formControlLg">Assigned to manager</label>
+    <select class="form-select" name="manager" id="">
+    <option value="">Select Option</option>
+     <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Manager'"); 
+      while($tl=mysqli_fetch_assoc($t))
+      echo'<option>'.$tl['name'].'</option>';
+      ?>
+    
+  </select>
+
+
     </div>
     
-    <div class="form-outline mt-4">
-    <label class="form-label" for="formControlLg">City</label>
-      <select id ="state" name="city" class="form-select" required></select>
+    
+    
+
+  <div class="form-outline mt-4" id="d" >
+  <label class="form-label" for="formControlLg">Assigned to area sales manager</label>
+  <select class="form-select" name="area_sales_manager" id="">
+      <option value="">Select Option</option>
+     <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Area Sales Manager'"); 
+      while($tl=mysqli_fetch_assoc($t))
+      echo'<option>'.$tl['name'].'</option>';
+      ?>
+    
+  </select>
+  </div>
+    
+  <div class="form-outline mt-4" id="e" >
+
+<label class="form-label" for="formControlLg">Assigned to branch manager</label>
+<select class="form-select" name="branch_manager" id="">
+    <option value="">Select Option</option>
+   <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Branch Manager'"); 
+    while($tl=mysqli_fetch_assoc($t))
+    echo'<option>'.$tl['name'].'</option>';
+    ?>
+  
+</select>
+
+
+  </div>
+
+    <div class="form-outline mt-4" id="f" >
+  
+  <label class="form-label" for="formControlLg">Assigned to zonal sales manager</label>
+  <select class="form-select" name="zonal_sales_manager" id="">
+      <option value="">Select Option</option>
+     <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Zonal Sales Manager'"); 
+      while($tl=mysqli_fetch_assoc($t))
+      echo'<option>'.$tl['name'].'</option>';
+      ?>
+    
+  </select>
     </div>
+
+
+    
+
 
    
 <div class="form-outline mt-4">
@@ -203,10 +297,62 @@ while($data=mysqli_fetch_assoc($d))
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
+  <script language="javascript">print_state("sts");</script>
+  <script>
+  function change(Status){
+ 
+    if(Status=='Group Team Leader')
+    {
+      $("#a").css("display","none");
+
+    }
+    else if(Status=='Team Leader')
+    {
+      $("#a").css("display","none");
+      $("#b").css("display","none");
+
+    }
+    else if(Status=='Manager')
+    {
+      $("#a").css("display","none");
+      $("#b").css("display","none");
+      $("#c").css("display","none");
+
+    }
+    else if(Status=='Area Sales Manager')
+    {
+      $("#a").css("display","none");
+      $("#b").css("display","none");
+      $("#c").css("display","none");
+      $("#d").css("display","none");
+
+    }
+    else if(Status=='Branch Manager')
+    {
+      $("#a").css("display","none");
+      $("#b").css("display","none");
+      $("#c").css("display","none");
+      $("#d").css("display","none");
+      $("#e").css("display","none");
+
+    }
+    else if(Status=='Zonal Sales Manager')
+    { $("#a").css("display","none");
+      $("#b").css("display","none");
+      $("#c").css("display","none");
+      $("#d").css("display","none");
+      $("#e").css("display","none");
+      $("#f").css("display","none");
+
+    }
+
+};
+
+
+  </script>
 
 <script>
-    toast.show();
-
+   // toast.show();
 </script>
-<script language="javascript">print_state("sts");</script>
+
 </html>

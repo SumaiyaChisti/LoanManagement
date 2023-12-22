@@ -1,12 +1,7 @@
 
 <?php
 include("components/conn.php");
-if(isset($_POST['submit'])) {
-  
-    $q = "INSERT INTO `users`(`name`,`email`,`role`,`state`,`city`)VALUES ('$_POST[name]','$_POST[email]','$_POST[role]','$_POST[state]','$_POST[city]')";
-    $d = mysqli_query($conn,$q);
-    
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -92,12 +87,10 @@ if(isset($_POST['submit'])) {
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
 <tr>
   
-    <th>Id</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Role</th>
-    <th>State</th>
-    <th>City</th>
+    
+    <th>Designation</th>
+    <th>Priority</th>
+
     
 
     <th colspan="2">Options</th>
@@ -106,7 +99,7 @@ if(isset($_POST['submit'])) {
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `users`";
+$q = "SELECT * FROM `designations`";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
@@ -114,12 +107,10 @@ while($data=mysqli_fetch_assoc($d))
   $sno=$sno+1;
     echo '<tr>
          
-          <td>'.$data['id'].'</td>
-          <td>'.$data['name'].'</td>
-          <td>'.$data['email'].'</td>
-          <td>'.$data['role'].'</td>
-          <td>'.$data['state'].'</td>
-          <td>'.$data['city'].'</td>
+          
+          <td>'.$data['designation'].'</td>
+          <td>'.$data['priority'].'</td>
+          
          
          
          

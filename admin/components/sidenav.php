@@ -30,32 +30,10 @@
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
               <i class="fa-solid fa-user "></i>
-                  &nbsp; &nbsp; &nbsp;Agent
+                  &nbsp; &nbsp; &nbsp;Staff
                 <i class="mdc-drawer-arrow material-icons">chevron_right</i>
               </a>
               <div class="mdc-expansion-panel" id="ui-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="addagents.php">
-                      Add Agent
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="viewagent.php">
-                      View Agent
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
-
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uix-sub-menu">
-              <i class="fa-solid fa-suitcase"></i> 
-              &nbsp; &nbsp; &nbsp;Staff
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="uix-sub-menu">
                 <nav class="mdc-list mdc-drawer-submenu">
                   <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="addstaff.php">
@@ -67,6 +45,19 @@
                       View Staff
                     </a>
                   </div>
+                </nav>
+              </div>
+            </div>
+
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uix-sub-menu">
+              <i class="fa-solid fa-suitcase"></i> 
+              &nbsp; &nbsp; &nbsp;Designation
+                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+              </a>
+              <div class="mdc-expansion-panel" id="uix-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                 
                   <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="adddesignation.php">
                       Add Designation

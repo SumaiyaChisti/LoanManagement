@@ -5,6 +5,15 @@ include("../vendor/autoload.php");
 include("mask.php");
 use PhpOffice\PhpSpreadsheet\IOFactory;
 session_start();
+
+if(isset($_POST['addstatusbutton']))
+{
+  mysqli_query($conn,"INSERT INTO `lead_attributes` (`name`) VALUES('$_POST[lead_status]')");
+  echo"hii";
+}
+
+
+
 if(isset($_POST['submit'])) 
 {
 
@@ -54,6 +63,8 @@ error_reporting(0);
     unlink($excelfile);
     mysqli_query($conn,"DELETE FROM `leadfiles`") or die(mysqli_error($conn));
    
+
+
 
 
 ?>
@@ -139,6 +150,11 @@ error_reporting(0);
    <br>
    
   
+
+
+
+
+   
     <!-- Button trigger modal -->
     <a class="btn btn-warning " href="components/sample_lead.xlsx">Download Sample File</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -146,6 +162,12 @@ error_reporting(0);
 </button>
 <br>
 <br>
+
+
+
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -164,12 +186,13 @@ error_reporting(0);
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="submit" class="btn btn-primary">Add</button>
+        <button type="submit"  name="submit" class="btn btn-primary">Add</button>
       </div>
       </form>
     </div>
   </div>
 </div>
+
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
@@ -195,7 +218,7 @@ error_reporting(0);
     <th>Tenure</th>
     <th>Minimun Tenure</th>
     <th>Lead Status</th>
-    <th>Status</th>
+    <th>Status &nbsp;&nbsp;<i class="fa fa-plus" data-toggle="modal" data-target="#exampleModalCenter2"></i></th>
     <th>Follow Up Date</th>
     <th>Comments</th>
     <th>Phone Call</th>
@@ -203,7 +226,24 @@ error_reporting(0);
     <th>HIT API</th>
 
 
-
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="">
+        <input type="text" name="lead_status" required>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" value="hello" name="addstatusbutton" class="btn btn-primary">Add</button>
+      </div>
     <th colspan="2">Option</th>
     
 </tr>
@@ -240,27 +280,33 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Tenure'].'</td>
          <td>'.$data['Minimum_Tenure'].'</td>
          <td>'.$data['Lead_Status'].'</td>
-         <td><select name="status" onchange="change('.$data["id"].',this.value)">
-         <option>Select</option>
-         <option value="Not_interested">Not interested</option>
-         <option value"Ringing">Ringing</option>
-         <option value"Followup">Followup</option>
-         <option value"Switch_Off">Switch Off</option>
-         <option value"Wrong_number">Wrong number</option>
-         <option value"Disbursed">Disbursed</option>
-         <option value"Not_Eligible">Not Eligible</option>
-         <option value"Call_back_later">Call back later</option>
-         <option value"In_process">In process</option>
-         </select>
-         </td>
+         <td><select value=""><option>Select Status</option>'
+         ;
+        
+         ?>
+<?php
+         $ls=mysqli_query($conn,"SELECT * FROM `lead_attributes`");
+         
+        while($attr=mysqli_fetch_assoc($ls))
+       {
+        echo'<option>'.$attr['name'].'</option>';
+        }
+       
+        
+ ?>       
+         
+      
+        <?php echo'
+         </select></td>
+        </td>
          <td><input type="date" name="date" id="date"/></td>
          <td>'.$data['Comments'].'</td>
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
 
-        
-         <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+          
+         <td><a class="btn" href="deleteleads.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
 }
