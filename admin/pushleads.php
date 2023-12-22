@@ -99,9 +99,6 @@ error_reporting(0);
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
   rel="stylesheet"
 />
-<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
-<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
-
 
 </head>
 
@@ -145,8 +142,11 @@ error_reporting(0);
         <main class="content-wrapper">
         <main >
   <div class="container pt-4" >
-    <h3 style="font-family: fancy monospace;" >View Leads</h3>
+    <br>
+    <h3 style="font-family: fancy monospace;" >Push Leads</h3>
     
+   <br>
+   <br>
    <br>
    
   
@@ -157,6 +157,10 @@ error_reporting(0);
    
     <!-- Button trigger modal -->
     <a class="btn btn-warning " href="components/sample_lead.xlsx">Download Sample File</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <br>
+    
+    <br>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Import
 </button>
@@ -193,7 +197,7 @@ error_reporting(0);
   </div>
 </div>
 
-    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
+   <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
     <th>Id</th>
@@ -218,7 +222,7 @@ error_reporting(0);
     <th>Tenure</th>
     <th>Minimun Tenure</th>
     <th>Lead Status</th>
-    <th>Status &nbsp;&nbsp;<i class="fa fa-plus" data-toggle="modal" data-target="#exampleModalCenter2"></i></th>
+    <th>Status &nbsp;&nbsp;<i class="fa fa-plus" data-toggle="modal" data-target="#exampleModalCenter2" data-toggle="tooltip" data-placement="top" title="Add"></i></th>
     <th>Follow Up Date</th>
     <th>Comments</th>
     <th>Phone Call</th>
@@ -244,11 +248,11 @@ error_reporting(0);
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" value="hello" name="addstatusbutton" class="btn btn-primary">Add</button>
       </div>
-    <th colspan="2">Option</th>
+    
     
 </tr>
 
-<?php
+<!--<?php
 include("components/conn.php");
 $q = "SELECT * FROM `leads` WHERE  `Agent_Email` = '$_SESSION[agent]'";
 $d=mysqli_query($conn, $q);
@@ -312,7 +316,7 @@ while($data=mysqli_fetch_assoc($d))
 }
 
 //echo"Total Number of rows are " .$co;
-?>
+?>-->
 
 </table>
 </div>
@@ -326,6 +330,10 @@ while($data=mysqli_fetch_assoc($d))
           
 
 
+<br>
+<br>
+<br>
+<br>
 
          
           <?php

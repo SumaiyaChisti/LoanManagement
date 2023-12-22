@@ -17,20 +17,20 @@
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="index.php">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">home</i>
-                Dashboard
+                &nbsp;Dashboard
               </a>
             </div>
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="myteam.php">
               <i class="fa-solid fa-user-group"></i>
-                &nbsp;&nbsp;&nbsp;My Team
+                &nbsp;&nbsp;&nbsp;&nbsp;My Team
               </a>
             </div>
            
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
               <i class="fa-solid fa-user "></i>
-                  &nbsp; &nbsp; &nbsp;Staff
+                  &nbsp; &nbsp; &nbsp; Staff
                 <i class="mdc-drawer-arrow material-icons">chevron_right</i>
               </a>
               <div class="mdc-expansion-panel" id="ui-sub-menu">
@@ -43,6 +43,77 @@
                   <div class="mdc-list-item mdc-drawer-item">
                     <a class="mdc-drawer-link" href="viewstaff.php">
                       View Staff
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-drawer-link" href="dsa.php" >
+                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
+                &nbsp; DSA
+              </a>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uit-sub-menu">
+              <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                  &nbsp;Campaign
+                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+              </a>
+              <div class="mdc-expansion-panel" id="uit-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="addcampaign.php">
+                      Add Campaign
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="viewcampaign.php">
+                    View Campaign
+                    </a>
+                  </div>
+                </nav>
+              </div>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uiz-sub-menu">
+              <i class="fa-solid fa-chart-column"></i>
+              &nbsp; &nbsp;&nbsp;  Leads
+                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+              </a>
+              <div class="mdc-expansion-panel" id="uiz-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="pushleads.php">
+                      Push Leads
+                    </a>
+                  </div>
+                
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="newleads.php">
+                      View Leads
+                    </a>
+                  </div>
+                 
+                </nav>
+              </div>
+            </div>
+            <div class="mdc-list-item mdc-drawer-item">
+              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui1-sub-menu">
+              <i class="fa-solid fa-user "></i>
+                  &nbsp; &nbsp;&nbsp;&nbsp;UM Utility
+                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
+              </a>
+              <div class="mdc-expansion-panel" id="ui1-sub-menu">
+                <nav class="mdc-list mdc-drawer-submenu">
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="addutility.php">
+                      Add
+                    </a>
+                  </div>
+                  <div class="mdc-list-item mdc-drawer-item">
+                    <a class="mdc-drawer-link" href="viewutility.php">
+                      View
                     </a>
                   </div>
                 </nav>
@@ -71,33 +142,7 @@
                 </nav>
               </div>
             </div>
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uiz-sub-menu">
-              <i class="fa-solid fa-chart-column"></i>
-              &nbsp; &nbsp; &nbsp; Leads
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="uiz-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pushleads.php">
-                      Push Leads
-                    </a>
-                  </div>
-                <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="viewleads.php">
-                      Leads
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="newleads.php">
-                      New Leads
-                    </a>
-                  </div>
-                 
-                </nav>
-              </div>
-            </div>
+            
             <div class="mdc-list-item mdc-drawer-item">
               <a class="mdc-drawer-link" href="https://www.bootstrapdash.com/demo/material-admin-free/jquery/documentation/documentation.html" target="_blank">
                 <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
@@ -105,33 +150,8 @@
               </a>
             </div>
            
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="dsa.php" >
-                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
-                &nbsp; DSA
-              </a>
-            </div>
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uit-sub-menu">
-              <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
-                  &nbsp; Campaign
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="uit-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="addcampaign.php">
-                      Add Campaign
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="viewcampaign.php">
-                    View Campaign
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
+            
+            
             
            
             <div class="mdc-list-item mdc-drawer-item">
@@ -140,27 +160,7 @@
                &nbsp; Charts
               </a>
             </div>
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui1-sub-menu">
-              <i class="fa-solid fa-user "></i>
-                  &nbsp; &nbsp; &nbsp;UM Utility
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="ui1-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="addutility.php">
-                      Add
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="viewutility.php">
-                      View
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
+            
             
             
             

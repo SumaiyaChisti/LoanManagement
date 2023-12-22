@@ -88,7 +88,7 @@ if(isset($_POST['submit'])) {
         <main class="content-wrapper">
         <main style="">
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;" >New Leads</h3>
+    <h3 style="font-family: fancy monospace;" >Leads</h3>
     <br>
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>

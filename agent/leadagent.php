@@ -240,19 +240,26 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Tenure'].'</td>
          <td>'.$data['Minimum_Tenure'].'</td>
          <td>'.$data['Lead_Status'].'</td>
-         <td><select name="status" onchange="change('.$data["id"].',this.value)">
-         <option>Select</option>
-         <option value="Not_interested">Not interested</option>
-         <option value"Ringing">Ringing</option>
-         <option value"Followup">Followup</option>
-         <option value"Switch_Off">Switch Off</option>
-         <option value"Wrong_number">Wrong number</option>
-         <option value"Disbursed">Disbursed</option>
-         <option value"Not_Eligible">Not Eligible</option>
-         <option value"Call_back_later">Call back later</option>
-         <option value"In_process">In process</option>
-         </select>
-         </td>
+    
+         <td><select name="status" onchange="change('.$data["id"].',this.value)" value=""><option>Select Status</option>'
+         ;
+        
+         ?>
+<?php
+         $ls=mysqli_query($conn,"SELECT * FROM `lead_attributes`");
+         
+        while($attr=mysqli_fetch_assoc($ls))
+       {
+        echo'<option>'.$attr['name'].'</option>';
+        }
+       
+        
+ ?>       
+         
+      
+        <?php echo'
+         </select></td>
+        </td>
          <td><input type="date" name="date" id="date"/></td>
          <td>'.$data['Comments'].'</td>
          <td>'.$data['Phone_Call'].'</td>
