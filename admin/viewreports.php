@@ -1,60 +1,10 @@
 <?php
 include("components/conn.php");
-include("../vendor/autoload.php");
+
 include("mask.php");
-use PhpOffice\PhpSpreadsheet\IOFactory;
-session_start();
-if(isset($_POST['submit'])) 
-{
-
-  $email=$_SESSION['agent'];
-      $dir="lead/";
-      $fullpath=$dir.basename($_FILES['file1']['name']);
-      move_uploaded_file($_FILES['file1']['tmp_name'], $fullpath);
-      mysqli_query($conn,"INSERT INTO `leadfiles`(`name`)VALUES('$fullpath')") or die(mysqli_error($conn));
-     
-     
-      
-      $dt=mysqli_query($conn,"SELECT * FROM `leadfiles`") or die(mysqli_error($conn));
-      $data=mysqli_fetch_assoc($dt);
-      $excelfile=$data['name'];
-      
-      $spreadsheet=IOFactory::load($excelfile);
-      $worksheet=$spreadsheet->getActiveSheet();
-    
-      foreach($worksheet->getRowIterator(2) as $row ) {
-        
-        $cell= $row->getCellIterator();
-      
-        $cell->setIterateOnlyExistingCells(true);
-       
-        $data1=[];
-        foreach($cell as $c ){
-        $data1[] = $c->getValue();
-        }
-        $data1[23]=$email;
-         $data1[24]=date("Y/m/d");
-         date_default_timezone_set("Asia/Kolkata");
-        $data1[25]=date("h:i:sa");
-        
-      //$q = "INSERT INTO `leads`(`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Custome_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimun_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`)VALUES ('$_POST[Reference_Number]','$_POST[Campaign_Name]','$_POST[Customer_Name]','$_POST[State]','$_POST[City]','$_POST[Pin_Code]','$_POST[Customer_Contact_Number]','$_POST[Customer_Email_ID]','$_POST[Cibil]','$_POST[Report]','$_POST[Annual_Income]','$_POST[Max_Loan_Amount]','$_POST[Min_Loan_Amount]','$_POST[Pan_ID]','$_POST[Processing_Fee]','$_POST[Tenure]','$_POST[Minimum_Tenure]','$_POST[Lead_Status]','$_POST[FollowUp_Date]','$_POST[Comments]','$_POST[Phone_Call]','$_POST[LINK_TO_CUSTOMER]','$_POST[HIT_API]')";
-      
-      $q = "INSERT INTO `leads`(`Reference_Number`,`Campaign_Name`,`Customer_Name`,`State`,`City`,`Pin_code`,`Customer_Contact_number`,`Customer_Email_Id`,`Cibil`,`Report`,`Annual_Income`,`Max_Loan_Amount`,`Min_Loan_Amount`,`Pan_ID`,`Processing_Fee`,`Tenure`,`Minimum_Tenure`,`Lead_Status`,`FollowUp_Date`,`Comments`,`Phone_Call`,`LINK_TO_CUSTOMER`,`HIT_API`,`Agent_Email`,`Upload_Date`,`Upload_Time`)VALUES ('".implode("','",$data1). "')";
-      $d = mysqli_query($conn,$q);
-      
-      }
-
-    }
-
-error_reporting(0);
-    $dt=mysqli_query($conn,"SELECT * FROM `leadfiles`") or die(mysqli_error($conn));
-    $data=mysqli_fetch_assoc($dt);
-    $excelfile=$data['name'];
-    unlink($excelfile);
-    mysqli_query($conn,"DELETE FROM `leadfiles`") or die(mysqli_error($conn));
-   
 
 
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,7 +129,7 @@ error_reporting(0);
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `leads` WHERE  `Agent_Email` = '$_SESSION[agent]' AND `Lead_Status`= 'Followup'";
+$q = "SELECT * FROM `leads` WHERE `Lead_Status`= '$_GET[status]'";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
@@ -209,19 +159,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Tenure'].'</td>
          <td>'.$data['Minimum_Tenure'].'</td>
          <td>'.$data['Lead_Status'].'</td>
-         <td><select name="status" onchange="change('.$data["id"].',this.value)">
-         <option>Select</option>
-         <option value="Not_interested">Not interested</option>
-         <option value"Ringing">Ringing</option>
-         <option value"Followup">Followup</option>
-         <option value"Switch_Off">Switch Off</option>
-         <option value"Wrong_number">Wrong number</option>
-         <option value"Disbursed">Disbursed</option>
-         <option value"Not_Eligible">Not Eligible</option>
-         <option value"Call_back_later">Call back later</option>
-         <option value"In_process">In process</option>
-         </select>
-         </td>
+         
          <td><input type="date"/></td>
          <td>'.$data['Comments'].'</td>
          <td>'.$data['Phone_Call'].'</td>

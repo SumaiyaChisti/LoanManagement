@@ -8,7 +8,8 @@ $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager`='$_POST
 while($data=mysqli_fetch_assoc($d)){
    if($data['role']=='Branch Manager'){
     echo'
-    <tr id="'.$_POST['id'].'">
+   
+    <tr id="'.$data['name'].'">
           <td>+</td>
           <td>'.$data['id'].'</td>
           <td>'.$data['name'].'</td>
@@ -17,12 +18,16 @@ while($data=mysqli_fetch_assoc($d)){
           <td>'.$data['state'].'</td>
           <td>'.$data['city'].'</td>
           <td>'.$data['role'].'</td>
-          <td><button value="'.$data['name'].'"  onclick="return showData1(this.value,event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
+          <td><button value="'.$data['name'].'" onclick="return showData1(this.value,event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
     </tr>
+  
     '
     ;
+
    }
+
 }
+ 
 }
 if(isset($_POST['id1'])){
     $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager`='$_POST[id1]'");
@@ -31,7 +36,7 @@ if(isset($_POST['id1'])){
         if($data['role']=='Area Sales Manager'){
         echo'
       
-        <tr id="'.$_POST['id1'].'">
+        <tr id="'.$data['name'].'">
               <td>+</td>
               <td>'.$data['id'].'</td>
               <td>'.$data['name'].'</td>
@@ -55,7 +60,7 @@ if(isset($_POST['id2'])){
         if($data['role']=='Manager'){
         echo'
       
-        <tr id="'.$_POST['id2'].'">
+        <tr id="'.$data['name'].'">
               <td>+</td>
               <td>'.$data['id'].'</td>
               <td>'.$data['name'].'</td>
@@ -79,7 +84,7 @@ if(isset($_POST['id2'])){
             if($data['role']=='Team Leader'){
             echo'
           
-            <tr id="'.$_POST['id3'].'">
+            <tr id="'.$data['name'].'">
                   <td>+</td>
                   <td>'.$data['id'].'</td>
                   <td>'.$data['name'].'</td>
@@ -103,7 +108,7 @@ if(isset($_POST['id2'])){
                 if($data['role']=='Group Team Leader'){
                 echo'
               
-                <tr id="'.$_POST['id4'].'">
+                <tr id="'.$data['name'].'">
                       <td>+</td>
                       <td>'.$data['id'].'</td>
                       <td>'.$data['name'].'</td>
@@ -127,7 +132,7 @@ if(isset($_POST['id2'])){
                     if($data['role']=='Agent'){
                     echo'
                   
-                    <tr id="'.$_POST['id5'].'">
+                    <tr id="'.$data['name'].'">
                           <td>+</td>
                           <td>'.$data['id'].'</td>
                           <td>'.$data['name'].'</td>

@@ -104,11 +104,8 @@ if(isset($_POST['submit'])) {
     <th>City</th>
     <th>Role</th>
     <th></th>
-
-
-    
 </tr >
-<tr id="hello"></tr>
+
 <?php
 include("components/conn.php");
 $q = "SELECT * FROM `staff` WHERE `role`='Zonal Sales Manager'" ;
@@ -117,7 +114,7 @@ $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
-    echo '<tr>
+    echo '<tr id="'.$data['name'].'">
           <td>'.$sno.'</td>
           <td>'.$data['id'].'</td>
           <td>'.$data['name'].'</td>
@@ -127,13 +124,11 @@ while($data=mysqli_fetch_assoc($d))
           <td>'.$data['city'].'</td>
           <td>'.$data['role'].'</td>
           <td><button value="'.$data['name'].'"  onclick="return showData(this.value,event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
-       </tr>
-        <tbody id="'.$data['name'].'">
-        
-        </tbody>
-       ';
+         </tr>
+          ';
 
 }
+
 
 
 //echo"Total Number of rows are " .$co;
@@ -182,19 +177,12 @@ while($data=mysqli_fetch_assoc($d))
 
 function showData(id,event)
 {
-    var a=document.getElementsByClassName("fa-plus")[0];
+ 
 
+    
     event.preventDefault();
     
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
+
 
 $.ajax(
     {
@@ -204,9 +192,11 @@ $.ajax(
             "id": id, 
         },
         success: function (data){
-       $('#'+id).html(data);
+       $('#'+id).after(data);
+       console.log(data);
         }
     });
+
     return false;
 }
 
@@ -217,19 +207,9 @@ $.ajax(
 function showData1(id1,event)
 {
 
-   var a=document.getElementsByClassName("fa-plus")[0];
-   $("#"+id1).html("<tbody id="+id1+">");
+  
 
 event.preventDefault(); 
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
 
 $.ajax(
     {
@@ -239,7 +219,7 @@ $.ajax(
             "id1": id1, 
         },
         success: function (data){
-       $('#'+id1).html(data);
+       $('#'+id1).after(data);
         }
     });
     return false;
@@ -250,19 +230,8 @@ $.ajax(
 function showData2(id2,event)
 {
 
-   var a=document.getElementsByClassName("fa-plus")[0];
-   $("#"+id2).html("<tbody id="+id2+">");
 
 event.preventDefault(); 
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
 
 $.ajax(
     {
@@ -272,7 +241,7 @@ $.ajax(
             "id2": id2, 
         },
         success: function (data){
-       $('#'+id2).html(data);
+       $('#'+id2).after(data);
         }
     });
     return false;
@@ -282,19 +251,10 @@ $.ajax(
 function showData3(id3,event)
 {
 
-   var a=document.getElementsByClassName("fa-plus")[0];
-   $("#"+id3).html("<tbody id="+id3+">");
+  
 
 event.preventDefault(); 
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
+
 
 $.ajax(
     {
@@ -304,7 +264,7 @@ $.ajax(
             "id3": id3, 
         },
         success: function (data){
-       $('#'+id3).html(data);
+       $('#'+id3).after(data);
         }
     });
     return false;
@@ -314,19 +274,8 @@ $.ajax(
 function showData4(id4,event)
 {
 
-   var a=document.getElementsByClassName("fa-plus")[0];
-   $("#"+id4).html("<tbody id="+id4+">");
-
 event.preventDefault(); 
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
+
 
 $.ajax(
     {
@@ -336,7 +285,7 @@ $.ajax(
             "id4": id4, 
         },
         success: function (data){
-       $('#'+id4).html(data);
+       $('#'+id4).after(data);
         }
     });
     return false;
@@ -346,19 +295,6 @@ $.ajax(
 function showData5(id5,event)
 {
 
-   var a=document.getElementsByClassName("fa-plus")[0];
-   $("#"+id5).html("<tbody id="+id5+">");
-
-event.preventDefault(); 
-if(a.classList.contains("fa-plus"))
-{
-   a.classList.remove("fa-plus")
-   a.classList.add("fa-minus")
-}
-if(a.classList.contains("fa-minus")){
-    a.classList.remove("fa-minus")
-   a.classList.add("fa-plus")
-}
 
 $.ajax(
     {
@@ -368,7 +304,7 @@ $.ajax(
             "id5": id5, 
         },
         success: function (data){
-       $('#'+id5).html(data);
+       $('#'+id5).after(data);
         }
     });
     return false;
