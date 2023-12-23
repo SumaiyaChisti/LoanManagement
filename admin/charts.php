@@ -86,6 +86,8 @@
                     <h6 class="card-sub-title mb-0">Sales performance revenue based on leads</h6>
                     <div class="mdc-tab-wrapper revenue-tab mdc-tab--secondary"> 
                       <div class="mdc-tab-bar" role="tablist">
+
+    
                         <div class="mdc-tab-scroller">
                           <div class="mdc-tab-scroller__scroll-area">
                             <div class="mdc-tab-scroller__scroll-content">

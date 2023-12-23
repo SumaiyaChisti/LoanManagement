@@ -90,9 +90,30 @@ if(isset($_POST['submit'])) {
   <div class="container pt-4">
     <h3 style="font-family: fancy monospace;" >Leads</h3>
     <br>
+    <label for="axt">Select Agent</label>
+    <form method="post" action="hex.php">
+    <select id="axt" class="form-control mb-3" style="width: 10rem;">
+    <?php
+ include("components/conn.php");
+$q = "SELECT * FROM `staff` WHERE `role`='Agent'";
+$d=mysqli_query($conn, $q);
+$co=mysqli_num_rows($d);
+while($data=mysqli_fetch_assoc($d))
+{
+  $sno=$sno+1;
+    echo ' <option value="'.$data['name'].'">'.$data['name'].'</option>';
+  }
+ 
+ 
+ 
+ ?>
+    </select>
+   
+    <button type="submit" class="btn btn-primary btn-sm mb-3">Assign</button>
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
+  <th>Select</th>
     <th>Id</th>
     <th>Refrence Number</th>
     <th>Campaign Name</th>
@@ -117,6 +138,7 @@ if(isset($_POST['submit'])) {
     <th>Phone Call</th>
     <th>Link To Customer</th>
     <th>HIT API</th>
+    <th>Agent Name</th>
 
 
 
@@ -134,6 +156,7 @@ while($data=mysqli_fetch_assoc($d))
   $sno=$sno+1;
     echo '<tr>
           <td>'.$sno.'</td>
+          <td><input type="checkbox" id="'.$data['id'].'" onclick="set_id(this.value,event)" name="lead_id"  value="'.$data['id'].'"></td>
           <td>'.$data['id'].'</td>
           <td>'.$data['Reference_Number'].'</td>
           <td>'.$data['Campaign_Name'].'</td>
@@ -158,7 +181,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
-
+         <td>'.$data['agent_name'].'</td>
          <td><a class="btn btn-light" href="deleteleads.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
@@ -171,7 +194,7 @@ while($data=mysqli_fetch_assoc($d))
 </div>
 
 </main>
-
+</form>
 <!--Main layout-->
           
 
@@ -203,6 +226,35 @@ while($data=mysqli_fetch_assoc($d))
   <!-- End custom js for this page-->
 <script>
     toast.show();
+    
+function set_id(data1,event){
+   
+    if($("#"+data1).prop('checked')==true)
+    {
+      event.preventDefault();
+      
+      $.ajax({
+      url: 'hex.php',
+      type: 'POST',
+  // Set the content type if sending JSON data
+      data:{'lead_id':data1}, // Convert data to JSON string
+      success: function(response) {
+      $("#"+data1).prop("checked",true);
+     },
+    error: function(xhr, status, error) {
+    // Handle errors here
+     console.log('Error: ' + error);
+    }
+    });
+  }
+
+else{
+  
+  $("#"+data1).prop('checked', false);
+  console.log("uncheck")
+}
+
+}
 </script>
 
 </html>
