@@ -92,7 +92,7 @@ if(isset($_POST['submit'])) {
     <br>
     <label for="axt">Select Agent</label>
     <form method="post" action="hex.php">
-    <select id="axt" class="form-control mb-3" style="width: 10rem;">
+    <select id="axt" name="lead_agent" class="form-control mb-3" style="width: 10rem;">
     <?php
  include("components/conn.php");
 $q = "SELECT * FROM `staff` WHERE `role`='Agent'";
@@ -110,6 +110,7 @@ while($data=mysqli_fetch_assoc($d))
     </select>
    
     <button type="submit" class="btn btn-primary btn-sm mb-3">Assign</button>
+    </form>
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
@@ -194,7 +195,7 @@ while($data=mysqli_fetch_assoc($d))
 </div>
 
 </main>
-</form>
+
 <!--Main layout-->
           
 
@@ -232,7 +233,7 @@ function set_id(data1,event){
     if($("#"+data1).prop('checked')==true)
     {
       event.preventDefault();
-      
+
       $.ajax({
       url: 'hex.php',
       type: 'POST',
