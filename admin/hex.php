@@ -1,14 +1,8 @@
 <?php
- session_start();
-// session_destroy();
-// session_abort();
-// print_r($_SESSION);
+include("./components/conn.php");
+session_start();
 
 
-for($i=0;$i<count($_SESSION['names']);$i++)
-{
-    echo $_SESSION['names'][$i];
-}
 
 if(isset($_POST['lead_id'])){
     $_SESSION['names'][] = $_POST['lead_id'];
@@ -17,7 +11,15 @@ if(isset($_POST['lead_id'])){
 
 if(isset($_POST['lead_agent'])){
    
-   
-    $_POST['lead_agent'];
+    for($i=0;$i<count($_SESSION['names']);$i++)
+    {
+        $x=$_SESSION['names'][$i];
+         mysqli_query($conn,"UPDATE  `leads` SET `agent_name`='$_POST[lead_agent]' WHERE `id`='$x'");
+
+    }
+    session_destroy();
+    session_abort();
+    header("location:newleads.php");
+
 }
 ?>

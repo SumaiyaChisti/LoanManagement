@@ -241,6 +241,7 @@ function set_id(data1,event){
       data:{'lead_id':data1}, // Convert data to JSON string
       success: function(response) {
       $("#"+data1).prop("checked",true);
+     
      },
     error: function(xhr, status, error) {
     // Handle errors here

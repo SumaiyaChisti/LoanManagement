@@ -135,6 +135,7 @@ $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
+  if(mysqli_num_rows($d)> 0){
     echo '<tr>
          
           <td>'.$sno.'</td>
@@ -170,6 +171,10 @@ while($data=mysqli_fetch_assoc($d))
          <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
          
      </tr>';
+  }
+  else{
+    echo"<h1 class='text-center'>No record found</h1>";
+  }
 }
 
 //echo"Total Number of rows are " .$co;
