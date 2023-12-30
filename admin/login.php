@@ -1,25 +1,56 @@
 <?php
 session_start();
 include("components/conn.php");
+include("../helper/auth.php");
 if(isset($_POST['submit']))
 {
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $d=mysqli_query($conn,"SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password' AND`role`='admin'");
-    if(mysqli_num_rows($d)==1)
+
+
+
+    // echo auth_gaurd($email,$password,'Zonal Sales Manager');
+    if($r=auth_gaurd($email,$password,'admin'))
     {
+       
         $_SESSION['admin']=$email;
         header("location:index.php");
     }
-    else if( $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `email`='$email' AND `password`='$password' AND`role`='agent'"))
+    else if ($r=auth_gaurd($email,$password,'Agent'))
     {
       $_SESSION['agent']=$email;
         header("location:../agent/index.php");
     }
-    else if( $d=mysqli_query($conn,"SELECT * FROM `users` WHERE `email`='$email' AND `password`='$password' AND`role`='manager'"))
+    else if($r=auth_gaurd($email,$password,'Zonal Sales Manager'))
     {
-      $_SESSION["manager"]=$email;
-      header("location:index.php");
+      // echo $r;
+      $_SESSION['Zonal_Sales_Manager']=$email;
+      header("location:../manager/index.php");
+    }
+    else if($r=auth_gaurd($email,$password,'Branch Manager'))
+    {
+      $_SESSION["Branch_Manager"]=$email;
+      header("location:../manager/index.php");
+    }
+    else if($r=auth_gaurd($email,$password,'Area Sales Manager'))
+    {
+      $_SESSION["Area_Sales_Manager"]=$email;
+      header("location:../manager/index.php");
+    }
+    if($r=auth_gaurd($email,$password,'Manager'))
+    {
+      $_SESSION["Manager"]=$email;
+      header("location:../manager/index.php");
+    }
+    else if($r=auth_gaurd($email,$password,'Group Manager'))
+    {
+      $_SESSION["Group_Team_Leader"]=$email;
+      header("location:../manager/index.php");
+    }
+    else if($r=auth_gaurd($email,$password,'Team Leader'))
+    {
+      $_SESSION["Team_Leader"]=$email;
+      header("location:../manager/index.php");
     }
     else
     echo'<script>alert("wrong email or password");</script>';
