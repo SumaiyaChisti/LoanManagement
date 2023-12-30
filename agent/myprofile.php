@@ -3,7 +3,7 @@
 include("components/conn.php");
 session_start();
 if(isset($_SESSION['agent'])){
-    $Q="SELECT * FROM `agents` WHERE `email`='$_SESSION[agent]'";
+    $Q="SELECT * FROM `staff` WHERE `email`='$_SESSION[agent]'";
     $D=mysqli_query($conn,$Q) ;
     $DATA=mysqli_fetch_assoc($D);
 }
@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
     $campaign = $_POST['campaign'];
 
     
-    $q="UPDATE `agents` SET `name`='$name',`email`='$email',`contact`='$contact',`team_leader`='$team_leader',`manager`='$manager',`branch_manager`='$branch_manager',`area_sales_manager`='$area_sales_manager',`zonal-sales_manager`='$zonal_sales_manager',`campaign`='$campaign'   WHERE `id`='$_GET[id]'";
+    $q="UPDATE `staff` SET `name`='$name',`email`='$email',`contact`='$contact',`team_leader`='$team_leader',`manager`='$manager',`branch_manager`='$branch_manager',`area_sales_manager`='$area_sales_manager',`zonal-sales_manager`='$zonal_sales_manager',`campaign`='$campaign'   WHERE `id`='$_GET[id]'";
     $d= mysqli_query($conn, $q);
     if ($d){
     echo "<script>alert('Updated Successfully');</script>";

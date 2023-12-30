@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
         $_SESSION['admin']=$email;
         header("location:index.php");
     }
-    else if( $d=mysqli_query($conn,"SELECT * FROM `agents` WHERE `email`='$email' AND `password`='$password'"))
+    else if( $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `email`='$email' AND `password`='$password' AND`role`='agent'"))
     {
       $_SESSION['agent']=$email;
         header("location:../agent/index.php");

@@ -27,57 +27,9 @@
               </a>
             </div>
            
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="ui-sub-menu">
-              <i class="fa-solid fa-user "></i>
-                  &nbsp; &nbsp; &nbsp; Staff
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="ui-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="addstaff.php">
-                      Add Staff
-                    </a>
-                  </div>
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="viewstaff.php">
-                      View Staff
-                    </a>
-                  </div>
-                </nav>
-              </div>
-            </div>
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-drawer-link" href="dsa.php" >
-                <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">description</i>
-                &nbsp; DSA
-              </a>
-            </div>
            
-            <div class="mdc-list-item mdc-drawer-item">
-              <a class="mdc-expansion-panel-link" href="#" data-toggle="expansionPanel" data-target="uiz-sub-menu">
-              <i class="fa-solid fa-chart-column"></i>
-              &nbsp; &nbsp;&nbsp;  Leads
-                <i class="mdc-drawer-arrow material-icons">chevron_right</i>
-              </a>
-              <div class="mdc-expansion-panel" id="uiz-sub-menu">
-                <nav class="mdc-list mdc-drawer-submenu">
-                <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="pushleads.php">
-                      Push Leads
-                    </a>
-                  </div>
-                
-                  <div class="mdc-list-item mdc-drawer-item">
-                    <a class="mdc-drawer-link" href="newleads.php">
-                      View Leads
-                    </a>
-                  </div>
-                 
-                </nav>
-              </div>
-            </div>
+           
+            
             
 
             

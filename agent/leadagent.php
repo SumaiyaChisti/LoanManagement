@@ -231,7 +231,7 @@ while($data=mysqli_fetch_assoc($d))
          </select></td>
         </td>
          <td><input type="date" name="date" id="date"/></td>
-         <td>'.$data['Comments'].'</td>
+         <td><input type="description"></td>
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>

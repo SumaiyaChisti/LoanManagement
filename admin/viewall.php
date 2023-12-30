@@ -114,12 +114,13 @@ include("mask.php");
     <th>Tenure</th>
     <th>Minimun Tenure</th>
     <th>Lead Status</th>
-    <th>Status</th>
+    
     <th>Follow Up Date</th>
     <th>Comments</th>
     <th>Phone Call</th>
     <th>Link To Customer</th>
     <th>HIT API</th>
+    <th>Agent Name</th>
 
 
 
@@ -129,7 +130,7 @@ include("mask.php");
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `leads` WHERE `Lead_Status`= '$_GET[status]'";
+$q = "SELECT * FROM `leads`";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
@@ -166,6 +167,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
+         <td>'.$data['agent_name'].'</td>
 
         
          <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
