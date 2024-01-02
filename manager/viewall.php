@@ -85,6 +85,7 @@ include("mask.php");
     <h3 style="font-family: fancy monospace;" ></h3>
     
    <br>
+   <button class="btn btn-warning " href="components/sample_lead.xlsx">Download Sample File</button>
    
   
     <!-- Button trigger modal -->
@@ -130,7 +131,7 @@ include("mask.php");
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `leads`";
+$q = "SELECT * FROM `leads` WHERE `Manager` ";
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
@@ -183,6 +184,7 @@ while($data=mysqli_fetch_assoc($d))
 ?>
 
 </table>
+
 </div>
 
 </main>

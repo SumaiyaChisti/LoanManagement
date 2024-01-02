@@ -1,12 +1,12 @@
 
 <?php
 include("components/conn.php");
-if(isset($_POST['submit'])) {
+// if(isset($_POST['submit'])) {
   
-    $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";
-    $d = mysqli_query($conn,$q);
+//     $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";
+//     $d = mysqli_query($conn,$q);
     
-}
+// }
 ?>
 
 <!DOCTYPE html>
@@ -86,35 +86,30 @@ if(isset($_POST['submit'])) {
         <main >
   <div class="container pt-4">
     <h3 style="font-family: fancy monospace;" >Urban Money Reports &nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="btn btn-outline-primary " href="viewall.php"><i class="fa-solid fa-eye">View All</i></a></h3>
+   <div class="row">
+    <?php 
+    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Branch Manager' AND `zonal_sales_manager` ='$_GET[name]'"); 
+    while($data=$d->fetch_assoc())  
+    echo'<div class="col-2">
+    <a href="areasalesmanager.php?name='.$data["name"].'">
+        <div class="card">
+            <div class="card-body text-center">
+                <i class="fa fa-user"></i>
+                <p class="text-info">'.$data["name"].'</p>
+                <p class="text-info">'.$data["role"].'</p>
+              
+            </div>
+        </div></a>
+    </div>';
+
+    ?>
+
+   </div>
 <br>
 
    <table class="table  table-responsive table-hover ">
 
    
-<?php
-include("components/conn.php");
-$q = "SELECT * FROM `lead_attributes`";
-$d=mysqli_query($conn, $q);
-$co=mysqli_num_rows($d);
-while($data=mysqli_fetch_assoc($d))
-{
-?>
-<tr>
-  <td>
-  <div class="form-outline">
-    <input type="text" id="formControlLg"  value="<?php echo $data['name'];?>" class="btn btn-disabled" readonly/>
-  <label class="form-label" for="formControlLg"></label></td>
-  
-  <td><a class="btn btn-success"href="viewreports.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-eye"></i></a></td>
-  <td><button class="btn btn-success"href="viewreports.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-download"></i></button></td>
-</tr>
-
-
-</div> 
-<?php
-}
-?>
 
 </table>
 

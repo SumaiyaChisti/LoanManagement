@@ -123,7 +123,7 @@ while($data=mysqli_fetch_assoc($d))
           <td>'.$data['state'].'</td>
           <td>'.$data['city'].'</td>
           <td>'.$data['role'].'</td>
-          <td><button value="'.$data['name'].'"  onclick="return showData(this.value,event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
+          <td><button id="'.$data['id'].$sno.'"  value="'.$data['name'].'"  onclick="return showData(this.value,'.$data['id'].$sno.',event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
          </tr>
           ';
 
@@ -148,42 +148,54 @@ while($data=mysqli_fetch_assoc($d))
 
    
       
-          </body>
+          
           <?php
       include("components/footer.php");
       ?>
-          <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
-></script>
-
-  <!-- plugins:js -->
+  
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
   <script src="assets/vendors/chartjs/Chart.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
   <script src="assets/js/material.js"></script>
   <script src="assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
-  <!-- End custom js for this page-->
-<script>
-    toast.show();
 
-function showData(id,event)
-{
+
+
+
+  <script type="text/javascript"> 
+
+   
+
+   
+    
+
+
+
  
 
+
+
+
+
+
+
+
+
+   
     
+
+
+function showData(id,btn,event)
+{
+  $("#"+btn).prop("disabled",true);
+ 
     event.preventDefault();
     
 
-
+    
 $.ajax(
     {
         url: "dataset.php",
@@ -193,7 +205,7 @@ $.ajax(
         },
         success: function (data){
        $('#'+id).after(data);
-       console.log(data);
+      //  console.log(data);
         }
     });
 
@@ -203,10 +215,12 @@ $.ajax(
 
 
 </script>
-<script>
-function showData1(id1,event)
-{
 
+
+<script>
+function showData1(id1,btn,event)
+{
+  $("#"+btn).prop("disabled",true);
   
 
 event.preventDefault(); 
@@ -227,10 +241,10 @@ $.ajax(
 </script>
 
 <script>
-function showData2(id2,event)
+function showData2(id2,btn,event)
 {
 
-
+  $("#"+btn).prop("disabled",true);
 event.preventDefault(); 
 
 $.ajax(
@@ -247,10 +261,12 @@ $.ajax(
     return false;
 }
 </script>
-<script>
-function showData3(id3,event)
-{
 
+
+<script>
+function showData3(id3,btn,event)
+{
+  $("#"+btn).prop("disabled",true);
   
 
 event.preventDefault(); 
@@ -271,9 +287,9 @@ $.ajax(
 }
 </script>
 <script>
-function showData4(id4,event)
+function showData4(id4,btn,event)
 {
-
+  $("#"+btn).prop("disabled",true);
 event.preventDefault(); 
 
 
@@ -291,10 +307,12 @@ $.ajax(
     return false;
 }
 </script>
-<script>
-function showData5(id5,event)
-{
 
+
+<script>
+function showData5(id5,btn,event)
+{
+  $("#"+btn).prop("disabled",true);
 
 $.ajax(
     {
@@ -311,5 +329,6 @@ $.ajax(
 }
 </script>
 
+</body>
 </html>
 
