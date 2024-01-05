@@ -89,7 +89,6 @@ include("components/conn.php");
     <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white;">
 <tr>
   <th>S.no</th>
-  <th>Select</th>
     <th>Id</th>
     <th>Refrence Number</th>
     <th>Campaign Name</th>
@@ -132,7 +131,7 @@ while($data=mysqli_fetch_assoc($d))
   $sno=$sno+1;
     echo '<tr>
           <td>'.$sno.'</td>
-          <td><input type="checkbox" id="'.$data['id'].'" onclick="set_id(this.value,event)" name="lead_id"  value="'.$data['id'].'"></td>
+      
           <td>'.$data['id'].'</td>
           <td>'.$data['Reference_Number'].'</td>
           <td>'.$data['Campaign_Name'].'</td>

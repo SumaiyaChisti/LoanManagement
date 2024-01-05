@@ -107,7 +107,8 @@ while($data=mysqli_fetch_assoc($d))
   <label class="form-label" for="formControlLg"></label></td>
   
   <td><a class="btn btn-success"href="viewreports.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-eye"></i></a></td>
-  <td><button class="btn btn-success"href="viewreports.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-download"></i></button></td>
+  <td> <a  class="btn btn-success" href="../helper/download.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-download"></i></a></td>
+  
 </tr>
 
 
