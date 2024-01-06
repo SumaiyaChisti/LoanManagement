@@ -1,6 +1,10 @@
 <?php
 include("components/conn.php");
+
+
+
     
+        
             if(isset($_POST['id5'])){
                 $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `group_team_leader`='$_POST[id5]'");
                 

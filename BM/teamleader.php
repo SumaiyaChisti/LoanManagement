@@ -1,8 +1,13 @@
 
+
 <?php
 include("components/conn.php");
-
-
+// if(isset($_POST['submit'])) {
+  
+//     $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";
+//     $d = mysqli_query($conn,$q);
+    
+// }
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +89,7 @@ include("components/conn.php");
     <h3 style="font-family: fancy monospace;" >Urban Money Reports &nbsp;&nbsp;&nbsp;&nbsp;
    <div class="row">
     <?php 
-    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Team Leader'"); 
+    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Team Leader' AND `manager` ='$_GET[name]'"); 
     while($data=$d->fetch_assoc())  
     echo'<div class="col-2">
     <a href="groupteamleader.php?name='.$data["name"].'">

@@ -9,9 +9,9 @@
         var revenueChart = new Chart(revenueChartCanvas, {
             type: 'bar',
             data: {
-            labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            labels: ["Disbused", "Callback", "Ringing", "hangout", "not", "yes", "asa"],
             datasets: [{
-                data: [105, 195, 290, 320, 400, 100, 290],
+                data: [800, 195, 290, 320, 400, 100, 290],
                 backgroundColor: ["rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgb(255, 86, 48)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)"],
                 }
             ]

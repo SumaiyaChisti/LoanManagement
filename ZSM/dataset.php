@@ -1,32 +1,6 @@
 <?php
 include("components/conn.php");
-if(isset($_POST['id'])){
-$d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager`='$_POST[id]'");
 
-while($data=mysqli_fetch_assoc($d)){
-   if($data['role']=='Branch Manager'){
-    echo'
-   
-    <tr id="'.$data['name'].'">
-          <td>+</td>
-          <td>'.$data['id'].'</td>
-          <td>'.$data['name'].'</td>
-          <td>'.$data['email'].'</td>
-          <td>'.$data['contact'].'</td>
-          <td>'.$data['state'].'</td>
-          <td>'.$data['city'].'</td>
-          <td>'.$data['role'].'</td>
-          <td><button value="'.$data['name'].'" onclick="return showData1(this.value,event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
-    </tr>
-  
-    '
-    ;
-
-   }
-
-}
- 
-}
 if(isset($_POST['id1'])){
     $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager`='$_POST[id1]'");
     

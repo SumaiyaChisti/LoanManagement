@@ -5,6 +5,21 @@ include("../vendor/autoload.php");
 include("mask.php");
 use PhpOffice\PhpSpreadsheet\IOFactory;
 session_start();
+
+
+if(isset($_POST['upd']))
+{
+  //date k liye 
+   $conn->query("");
+}
+
+if(isset($_POST['upd2']))
+{
+  // comment k liye
+  $conn->query("");
+
+}
+
 if(isset($_POST['submit'])) 
 {
 
@@ -230,8 +245,10 @@ while($data=mysqli_fetch_assoc($d))
         <?php echo'
          </select></td>
         </td>
-         <td><input type="date" name="date" id="date"/></td>
-         <td><input type="description"></td>
+         <td>
+         <form method="post"><input type="hidden" name="id" value="'.$data['id'].'" id="date"/> <input type="date" name="date" id="date"/> <button name="upd" value="up" class="btn btn-success btn-sm" type="submit">Save</button></form></td>
+         <td>
+         <form method="post"> <input type="hidden" name="id" value="'.$data['id'].'" id="date"/> <input type="text" name="description"> <button name="upd2" value="up" class="btn btn-success btn-sm" type="submit">Save</button></form></td>
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>

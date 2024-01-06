@@ -25,32 +25,32 @@ if(isset($_POST['submit']))
     {
       // echo $r;
       $_SESSION['Zonal_Sales_Manager']=$email;
-      header("location:../manager/index.php");
+      header("location:../ZSM/index.php");
     }
     else if($r=auth_gaurd($email,$password,'Branch Manager'))
     {
       $_SESSION["Branch_Manager"]=$email;
-      header("location:../manager/index.php");
+      header("location:../BM/index.php");
     }
     else if($r=auth_gaurd($email,$password,'Area Sales Manager'))
     {
       $_SESSION["Area_Sales_Manager"]=$email;
-      header("location:../manager/index.php");
+      header("location:../ASM/index.php");
     }
     if($r=auth_gaurd($email,$password,'Manager'))
     {
       $_SESSION["Manager"]=$email;
       header("location:../manager/index.php");
     }
-    else if($r=auth_gaurd($email,$password,'Group Manager'))
+    else if($r=auth_gaurd($email,$password,'Group Team Leader'))
     {
       $_SESSION["Group_Team_Leader"]=$email;
-      header("location:../manager/index.php");
+      header("location:../GTL/index.php");
     }
     else if($r=auth_gaurd($email,$password,'Team Leader'))
     {
       $_SESSION["Team_Leader"]=$email;
-      header("location:../manager/index.php");
+      header("location:../TL/index.php");
     }
     else
     echo'<script>alert("wrong email or password");</script>';
