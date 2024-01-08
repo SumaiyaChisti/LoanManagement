@@ -10,13 +10,14 @@ session_start();
 if(isset($_POST['upd']))
 {
   //date k liye 
-   $conn->query("");
+  
+   $conn->query(" UPDATE `leads` SET `FollowUp_Date`='$_POST[date]' WHERE `id`='$_POST[id]'");
 }
 
 if(isset($_POST['upd2']))
 {
   // comment k liye
-  $conn->query("");
+  $conn->query("UPDATE `leads` SET `Comments`='$_POST[description]' WHERE `id`='$_POST[id]'");
 
 }
 
@@ -186,6 +187,7 @@ error_reporting(0);
     <th>Phone Call</th>
     <th>Link To Customer</th>
     <th>HIT API</th>
+    <th>Application Form</th>
 
 
 
@@ -252,6 +254,7 @@ while($data=mysqli_fetch_assoc($d))
          <td>'.$data['Phone_Call'].'</td>
          <td>'.$data['LINK_TO_CUSTOMER'].'</td>
          <td>'.$data['HIT_API'].'</td>
+         <td><a class="btn" href="form.php?id='.$data['id'].'"><i class="fa-solid fa-file-invoice"></i></a></td>
 
         
          <td><a class="btn" href="delete.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>

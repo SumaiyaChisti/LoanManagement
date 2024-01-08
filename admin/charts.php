@@ -52,6 +52,67 @@
          <!-- nav yaha hai -->
          <?php
          include("components/sidenav.php");
+         include("./components/conn.php");
+          function chart_count($status,$conn){
+                $dd=$conn->query("SELECT * FROM `leads` WHERE `lead_status`='$status'");
+                return mysqli_num_rows($dd);
+          }
+
+
+
+
+         $Call_back_later=chart_count('Call back later',$conn);
+
+        
+         $Disbursed=chart_count('Disbursed',$conn);
+           
+         
+         $FollowUp=chart_count('FollowUp',$conn);
+          
+        
+         $In_process=chart_count('In process',$conn);
+        
+
+         $Not_eligible=chart_count('Not eligible',$conn);
+         
+        
+         $Not_interested=chart_count('Not interested',$conn);
+           
+        
+         $Ringing=chart_count('Ringing',$conn);
+          
+         
+         $Switch_Off=chart_count('Switch Off',$conn);
+          
+        
+         $Wrong_number=chart_count('Wrong number',$conn);
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          ?>
         </div>
         <div class="profile-actions">
@@ -153,13 +214,32 @@
                     </div>
                   </div>
                   <div class="chart-container mt-4">
+
+
                     <canvas id="revenue-chart" height="260"></canvas>
+                    
+
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </main>
+
+
+
+                <div style="display: none;">
+                    <p id="c1"><?php echo$Call_back_later;?></p>
+                    <p id="c2"><?php echo$Disbursed;?></p>
+                    <p id="c3"><?php echo$FollowUp;?></p>
+                    <p id="c4"><?php echo$In_process;?></p>
+                    <p id="c5"><?php echo$Not_eligible;?> </p>
+                    <p id="c6"><?php echo$Not_interested;?></p>
+                    <p id="c7"><?php echo$Ringing;?></p>
+                    <p id="c8"><?php echo$Switch_Off;?></p>
+                    <p id="c9"><?php echo$Wrong_number;?></p>
+                    </div>
         <!-- partial:partials/_footer.html -->
       <?php
       include("components/footer.php");

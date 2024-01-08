@@ -6,12 +6,22 @@
     if ($("#revenue-chart").length) {
         var revenueChartCanvas = $("#revenue-chart").get(0).getContext("2d");
 
+        var c1=$("#c1").text();
+        var c2=$("#c2").text();
+        var c3=$("#c3").text();
+        var c4=$("#c4").text();
+        var c5=$("#c5").text();
+        var c6=$("#c6").text();
+        var c7=$("#c7").text();
+        var c8=$("#c8").text();
+
+
         var revenueChart = new Chart(revenueChartCanvas, {
             type: 'bar',
             data: {
-            labels: ["Disbused", "Callback", "Ringing", "hangout", "not", "yes", "asa"],
+            labels: ["Call back","Disbursed","Follow Up","In Process" ,"Not Eligible","Not Interested","Ringing","Switch Off","Wrong Number"],
             datasets: [{
-                data: [800, 195, 290, 320, 400, 100, 290],
+                data: [c1, c2, c3, c4, c5, c6, c7,c8,c9],
                 backgroundColor: ["rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgb(255, 86, 48)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)", "rgba(255, 86, 48, 0.3)"],
                 }
             ]

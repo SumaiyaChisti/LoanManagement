@@ -1,6 +1,13 @@
 <?php
 include("components/conn.php");
+$d=$conn->query("SELECT * FROM `leads`");
+  $num=mysqli_num_rows($d);
 
+  $d=$conn->query("SELECT * FROM `leads` WHERE `Lead_Status`='In Process'");
+  $num1=mysqli_num_rows($d);
+
+  $d=$conn->query("SELECT * FROM `leads` WHERE `Lead_Status`='Not Interested'");
+  $num2=mysqli_num_rows($d);
 
 ?>
 
@@ -23,6 +30,9 @@ include("components/conn.php");
   <link rel="stylesheet" href="assets/css/demo/style.css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="assets/images/favicon.png" />
+  <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+    
 </head>
 <body>
 <script src="assets/js/preloader.js"></script>
@@ -67,8 +77,8 @@ include("components/conn.php");
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--success">
                   <div class="card-inner">
-                    <h5 class="card-title">Borrowed</h5>
-                    <h5 class="font-weight-light pb-2 mb-1 border-bottom">₹62,0076.00</h5>
+                    <h5 class="card-title">Total Leads</h5>
+                    <h5 class="font-weight-light pb-2 mb-1 border-bottom"><?php echo $num; ?></h5>
                     <p class="tx-12 text-muted">48% target reached</p>
                     <div class="card-icon-wrapper">
                       <i class="material-icons">dvr</i>
@@ -79,8 +89,8 @@ include("components/conn.php");
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--danger">
                   <div class="card-inner">
-                    <h5 class="card-title">Annual Profit</h5>
-                    <h5 class="font-weight-light pb-2 mb-1 border-bottom">₹1,958,104.00</h5>
+                    <h5 class="card-title">In Process</h5>
+                    <h5 class="font-weight-light pb-2 mb-1 border-bottom"><?php echo $num1; ?></h5>
                     <p class="tx-12 text-muted">55% target reached</p>
                     <div class="card-icon-wrapper">
                       <i class="material-icons">attach_money</i>
@@ -91,8 +101,8 @@ include("components/conn.php");
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--primary">
                   <div class="card-inner">
-                    <h5 class="card-title">Lead Conversion</h5>
-                    <h5 class="font-weight-light pb-2 mb-1 border-bottom">₹234,769.00</h5>
+                    <h5 class="card-title">Not Interested</h5>
+                    <h5 class="font-weight-light pb-2 mb-1 border-bottom"><?php echo $num2; ?></h5>
                     <p class="tx-12 text-muted">87% target reached</p>
                     <div class="card-icon-wrapper">
                       <i class="material-icons">trending_up</i>
@@ -103,7 +113,7 @@ include("components/conn.php");
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet">
                 <div class="mdc-card info-card info-card--info">
                   <div class="card-inner">
-                    <h5 class="card-title">Average Income</h5>
+                    <h5 class="card-title">Forms Submitted</h5>
                     <h5 class="font-weight-light pb-2 mb-1 border-bottom">₹1,200.00</h5>
                     <p class="tx-12 text-muted">87% target reached</p>
                     <div class="card-icon-wrapper">
@@ -115,7 +125,7 @@ include("components/conn.php");
               <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                 <div class="mdc-card">
                   <div class="d-flex justify-content-between">
-                    <h4 class="card-title mb-0">Revenue by location</h4>
+                    <h4 class="card-title mb-0">Total Leads by Location</h4>
                     <div>
                         <i class="material-icons refresh-icon">refresh</i>
                         <i class="material-icons options-icon ml-2">more_vert</i>
@@ -149,35 +159,26 @@ include("components/conn.php");
                   </div>
                   <div class="mdc-layout-grid__inner mt-2">
                     <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-8-tablet">
+                      
                         <div class="table-responsive">
                           <table class="table dashboard-table">
                             <tbody>
-                              <tr>
+
+                            <?php
+
+                            $dd=$conn->query("SELECT * FROM `states`");
+                            
+                            while($st=mysqli_fetch_assoc($dd))
+                              echo'<tr>
                                 <td>
-                                  <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>Delhi</td>
-                                <td>₹1,671.10</td>
-                                <td class=" font-weight-medium"> 39% </td>
-                              </tr>
-                              <tr>
-                                <td> <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>Haryana	</td>
-                                <td>₹1,064.75</td>
-                                <td class=" font-weight-medium"> 30% </td>
-                              </tr>
-                              <tr>
-                                <td> <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>Maharashtra</td>
-                                <td>₹1,055.98</td>
-                                <td class=" font-weight-medium"> 45% </td>
-                              </tr>
-                              <tr>
-                                <td> <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>Tamil Nadu</td>
-                                <td>₹1,045.49</td>
-                                <td class=" font-weight-medium"> 80% </td>
-                              </tr>
-                              <tr>
-                                <td> <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>Uttar Pradesh</td>
-                                <td>₹2,050.93</td>
-                                <td class=" font-weight-medium"> 10% </td>
-                              </tr>
+                                  <span class="flag-icon-container"><i class="flag-icon flag-icon-in mr-2"></i></span>'.$st['name'].'
+                                  </td>
+                                  <td><a class="btn btn-success" href="leadsbylocation.php?state='.$st['name'].'">View Leads</a></td>
+                                 
+                              </tr>';
+                              
+                              ?>
+                              
                             </tbody>
                           </table>
                         </div>
@@ -348,5 +349,7 @@ include("components/conn.php");
   <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
   <!-- End custom js for this page-->
+
+  <script> var table = new DataTable("table")</script>
 </body>
 </html> 
