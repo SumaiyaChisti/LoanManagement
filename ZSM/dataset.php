@@ -2,7 +2,7 @@
 include("components/conn.php");
 
 if(isset($_POST['id1'])){
-    $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager`='$_POST[id1]'");
+    $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager`='$_POST[id1]' AND `zonal_sales_manager`='$_SESSION[zonal_sales_manager]'");
     
     while($data=mysqli_fetch_assoc($d)){
         if($data['role']=='Area Sales Manager'){

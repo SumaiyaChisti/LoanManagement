@@ -1,12 +1,8 @@
 
 <?php
 include("components/conn.php");
-if(isset($_POST['submit'])) {
-  
-    $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";
-    $d = mysqli_query($conn,$q);
-    
-}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +13,7 @@ if(isset($_POST['submit'])) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Urbanmoney</title>
   <!-- plugins:css -->
+  <link rel="stylesheet" href="assets/css/button.css">
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
@@ -106,9 +103,22 @@ while($data=mysqli_fetch_assoc($d))
     <input type="text" id="formControlLg"  value="<?php echo $data['name'];?>" class="btn btn-disabled" readonly/>
   <label class="form-label" for="formControlLg"></label></td>
   
-  <td><a class="btn btn-success"href="viewreports.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-eye"></i></a></td>
-  <td> <a  class="btn btn-success" href="../helper/download.php?status=<?php echo $data['name'];?>"><i class="fa-solid fa-download"></i></a></td>
+  <td><a class="Btn"href="viewreports.php?status=<?php echo $data['name'];?>">
+  <i class="svgIcon fa-solid fa-eye"></i>
+ 
+   <span class="tooltip">View</span>
+
+
+</a></td>
   
+  
+  
+  <td> <a  class="Btn" href="../helper/download.php?status=<?php echo $data['name'];?>">
+  <svg class="svgIcon" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg>
+   <span class="icon2"></span>
+   <span class="tooltip">Download</span>
+</a></td>
+
 </tr>
 
 

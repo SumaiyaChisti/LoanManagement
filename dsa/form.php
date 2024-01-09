@@ -237,6 +237,37 @@ if(isset($_POST['submit'])) {
 &nbsp;&nbsp;<input type="radio" id="formControlLg" name="account_type" value="other">
   <label for="other">Other</label><br>
     </div>
+    <h4 style="margin-top: 15px; color:blue" >Upload Documents</h4>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
+    <div class="form-outline mt-4">
+  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+    </div>
     <h4 style="margin-top: 15px; color:blue" >Loan Details</h4>
     <div class="form-outline mt-4">
     <p>Purpose of Personal Loan</p>

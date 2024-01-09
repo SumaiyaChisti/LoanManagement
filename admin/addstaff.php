@@ -253,7 +253,7 @@ while($data=mysqli_fetch_assoc($d))
       <option value="">Select Option</option>
      <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Zonal Sales Manager'"); 
       while($tl=mysqli_fetch_assoc($t))
-      echo'<option>'.$tl['name'].'</option>';
+      echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
       ?>
     
   </select>
