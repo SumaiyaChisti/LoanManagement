@@ -107,7 +107,7 @@ if(isset($_POST['submit'])) {
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `staff` WHERE `role`='Zonal Sales Manager'" ;
+$q = "SELECT * FROM `staff` WHERE `role`='Manager' AND `area_sales_manager`='$_SESSION[area_sales_manager]'" ;
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))

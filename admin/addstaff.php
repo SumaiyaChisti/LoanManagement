@@ -180,7 +180,7 @@ while($data=mysqli_fetch_assoc($d))
   <option value="">Select Option</option>
    <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Group Team Leader'"); 
     while($tl=mysqli_fetch_assoc($t))
-    echo'<option>'.$tl['name'].'</option>';
+    echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
     ?>
   
 </select>
@@ -194,7 +194,7 @@ while($data=mysqli_fetch_assoc($d))
    <option value="">Select Option</option>
      <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Team Leader'"); 
       while($tl=mysqli_fetch_assoc($t))
-      echo'<option>'.$tl['name'].'</option>';
+      echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
       ?>
     
   </select>
@@ -208,7 +208,7 @@ while($data=mysqli_fetch_assoc($d))
     <option value="">Select Option</option>
      <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Manager'"); 
       while($tl=mysqli_fetch_assoc($t))
-      echo'<option>'.$tl['name'].'</option>';
+      echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
       ?>
     
   </select>
@@ -225,7 +225,7 @@ while($data=mysqli_fetch_assoc($d))
       <option value="">Select Option</option>
      <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Area Sales Manager'"); 
       while($tl=mysqli_fetch_assoc($t))
-      echo'<option>'.$tl['name'].'</option>';
+      echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
       ?>
     
   </select>
@@ -238,7 +238,7 @@ while($data=mysqli_fetch_assoc($d))
     <option value="">Select Option</option>
    <?php $t=mysqli_query($conn,"SELECT * FROM `staff` WHERE `role`='Branch Manager'"); 
     while($tl=mysqli_fetch_assoc($t))
-    echo'<option>'.$tl['name'].'</option>';
+    echo'<option value="'.$t1['email'].'">'.$tl['name'].'</option>';
     ?>
   
 </select>
