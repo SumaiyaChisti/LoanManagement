@@ -3,7 +3,7 @@
 session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `submitted_forms`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
+    $q = "INSERT INTO `form4`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhaar_card`,`residential_bill`,`office_bill`,`MOA_AOA`,`ITRfinancials_AuditReport`,`individual_ITR`,`GST_registration`,`individual_banking`.`list_of_directors`,`ongoing_loans`,`repayment`,`photographs`,`GST_3B`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[pan_card]','$_POST[aadhaar_card]','$_POST[residential_bill]','$_POST[office_bill]','$_POST[MOA_AOA]','$_POST[ITRfinancials_AuditReport]','$_POST[individual_ITR]','$_POST[GST_registration]','$_POST[individual_banking]','$_POST[list_of_directors]','$_POST[ongoing_loans]','$_POST[repayment]','$_POST[photographs]','$_POST[GST_3B]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -209,59 +209,59 @@ if(isset($_POST['submit'])) {
     <h4 style="margin-top: 15px; color:blue" >Upload Documents</h4>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Pan Card Copy of Company And All Directors</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="pan_card"  class="form-control form-control-lg" required />
     </div>
-    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Adhaar Card of All Directors</h6>
+    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Aadhaar Card of All Directors</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="aadhaar_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Residential Light And Telephone Bill Of All Directors(latest Month)(if rented then rent Agreement)</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="residential_bill"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Office Light And Telephone Bill Of Latest Month.(if rented then rent agreement).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="office_bill"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">MOA And AOA 5.Form 32 And Form 20B(if required).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="MOA_AOA"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 3 Years Company ITR Finincials With Audit Report.(CA ATTESTED). </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ITRfinancials_AuditReport"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 3 years indiviual ITR of All Directors.(CA ATTESTED).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="individual_ITR"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">GST Registration</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="GST_registration"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 6 Months Indiviual Banking </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="individual_banking"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">List Of Directors And Share Holding Pattern On Company LetterHead. </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="list_of_directors"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">All On Going Loans On Company And Individual Name Sanction Letter. </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ongoing_loans"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Repayment Track Record Of All Going Loans.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="repayment"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">3-4 Photographs Of Each Director</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="photographs"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 12 Months GST 3B Applicable</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="GST_3B"  class="form-control form-control-lg" required />
     </div>
     
 <h4 style="margin-top: 15px; color:blue" >Financial Refrences</h4>

@@ -209,59 +209,59 @@ if(isset($_POST['submit'])) {
     <h4 style="margin-top: 15px; color:blue" >Upload Documents</h4>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Pan Card Copy of Applicant And Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="pan_card"  class="form-control form-control-lg" required />
     </div>
-    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Adhaar Card of Applicant & Co-Applicant</h6>
+    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Aadhaar Card of Applicant & Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="aadhaar_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Residential Light And Telephone Bill Of (latest Month)(if rented then rent Agreement)</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="residential_bill"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Relationship Proof Of Applicant and Co-Applicant.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="relationship_proof"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 3 Months Salary Slip And Last 2 years Form 16.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="salary_slip"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Offer Letter Amd Visiting Card Copy/ID Card Copy . </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="id_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 6 Months Banking In Which Salary Is Credited.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="six_months_banking"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">All On Going Loans On Company And Individual Name Sanction Letter And Repayment Track Record</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ongoing_loans"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Sale Agreement/Draft Agreement(Builder Purchase).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="sale_agreement"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Chain Agreement Copy And Sale Agreement Copy(Resale Property) . </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="chain_agreement"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">OC Copy/CC Copy. </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="OC_CC"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">BMC Approved Plan Copy.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="BMC"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Share Certificate Front And Back Side Copy(if available for resale property).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="certificate"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">3-4 Photographs of Applicant And Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="photographs"  class="form-control form-control-lg" required />
     </div>
    
     

@@ -3,7 +3,7 @@
 session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `submitted_forms`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
+    $q = "INSERT INTO `form3`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhaar_card`,`residential_bill`,`license`,`tax_receipt`,`ITRfinancials_AuditReport`,`bank_statement`,`bank_statement_Saving_Accounts`,`ongoing_loans`,`photographs`,`business_proof`,`business_proof`,`GST_registration`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[pan_card]','$_POST[aadhaar_card]','$_POST[residential_bill]','$_POST[license]','$_POST[tax_receipt]','$_POST[ITRfinancials_AuditReport]','$_POST[bank_statement]','$_POST[bank_statement_Saving_Accounts]','$_POST[ongoing_loans]','$_POST[photographs]','$_POST[business_proof]','$_POST[GST_3B]','$_POST[GST_registration]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -209,55 +209,55 @@ if(isset($_POST['submit'])) {
     <h4 style="margin-top: 15px; color:blue" >Upload Documents</h4>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Pan Card Copy </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="pan_card"  class="form-control form-control-lg" required />
     </div>
-    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Adhaar Card </h6>
+    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Aadhaar Card </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="aadhaar_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Residential & Office Light Bill And Telephone Bill Of Latest Month(if on rented then rent Agreement required)</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="residential_bill"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Gomasta License(Renewed)</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="license"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 12 Months Service Tax/Sales Tax Receipt/VAT Challans As Applicable</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="tax_receipt"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 3 Years ITR Financials With Audit Report </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ITRfinancials_AuditReport"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 12 Months Bank Statements of Company All Accounts</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="bank_statement"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 6 Months Bank Statement of Saving Accounts</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="bank_statement_Saving_Accounts"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">All OnGoing Loans Sanction Letter And Repayment Track Record </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ongoing_loans"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">3-4 Photographs</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="photographs"  class="form-control form-control-lg" required />
     </div>
-    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">5 years Old Bussiness Continuity Proof </h6>
+    <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">5 years Old Business Continuity Proof </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="business_proof"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 12 Months GST 3B Applicable</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="GST_3B"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">GST Registration</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="GST_registration"  class="form-control form-control-lg" required />
     </div>
     
 <h4 style="margin-top: 15px; color:blue" >Financial Refrences</h4>
