@@ -8,6 +8,7 @@ include("components/conn.php");
 //     $d = mysqli_query($conn,$q);
     
 // }
+session_start();
 ?>
 
 <!DOCTYPE html>

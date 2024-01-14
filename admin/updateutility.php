@@ -1,6 +1,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 if(isset($_GET['id'])){
     $Q="SELECT * FROM `umutility` WHERE `id`='$_GET[id]'";
     $D=mysqli_query($conn,$Q) ;

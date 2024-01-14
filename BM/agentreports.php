@@ -1,7 +1,7 @@
 
 <?php
 include("components/conn.php");
-
+session_start();
 
 ?>
 
@@ -84,7 +84,8 @@ include("components/conn.php");
     <h3 style="font-family: fancy monospace;" >Urban Money Reports &nbsp;&nbsp;&nbsp;&nbsp;
    <div class="row">
     <?php 
-    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Area Sales Manager'"); 
+
+    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Area Sales Manager' AND `branch_manager` ='$_GET[name]'"); 
     while($data=$d->fetch_assoc())  
     echo'<div class="col-2">
     <a href="manager.php?name='.$data["name"].'">

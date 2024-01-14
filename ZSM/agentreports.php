@@ -39,7 +39,7 @@ include("components/conn.php");
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
   rel="stylesheet"
 />
-
+<link rel="stylesheet" href="./assets/css/card.css">
 </head>
 
 <body>
@@ -85,12 +85,12 @@ include("components/conn.php");
     <h3 style="font-family: fancy monospace;" >Urban Money Reports &nbsp;&nbsp;&nbsp;&nbsp;
    <div class="row">
     <?php 
-    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Branch Manager' AND `zonal_sales_manager`='$_SESSION[zonal_sales_manager]'"); 
+    $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Branch Manager' AND `zonal_sales_manager`='$_SESSION[Zonal_Sales_Manager]'"); 
     while($data=$d->fetch_assoc())  
     echo'<div class="col-2">
-    <a href="areasalesmanager.php?name='.$data["name"].'">
-        <div class="card">
-            <div class="card-body text-center">
+    <a href="areasalesmanager.php?name='.$data["email"].'">
+        <div class="cardj">
+            <div class="heading text-center">
                 <i class="fa fa-user"></i>
                 <p class="text-info">'.$data["name"].'</p>
                 <p class="text-info">'.$data["role"].'</p>
@@ -116,7 +116,15 @@ include("components/conn.php");
 
 </main>
 
-
+<div id="card" style="position: absolute;z-index:2;"  >
+  <p id="heading" style="z-index:4;">
+    Popular this month
+  </p>
+  <p>
+    Powered By
+  </p>
+  <p>Uiverse
+</p></div>
 
 
 <!--Main layout-->

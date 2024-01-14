@@ -1,11 +1,7 @@
 <?php
 include("components/conn.php");
-if(isset($_POST['submit'])) {
-  
-  $q = "INSERT INTO `staff`(`name`,`email`,`password`,`contact`,`state`,`city`,`role`,`group_team_leader`,`team_leader`,`manager`,`branch_manager`,`area_sales_manager`,`zonal_sales_manager`,`campaign`)VALUES ('$_POST[name]','$_POST[email]','$_POST[password]','$_POST[contact]','$_POST[state]','$_POST[city]','$_POST[role]','$_POST[group_team_leader]','$_POST[team_leader]','$_POST[manager]','$_POST[branch_manager]','$_POST[area_sales_manager]','$_POST[zonal_sales_manager]','$_POST[campaign]')";
-  $d = mysqli_query($conn,$q);
-    
-}
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +76,7 @@ if(isset($_POST['submit'])) {
       <!-- partial:partials/_navbar.html -->
       <?php
          include("components/header.php");
-         error_reporting(0);
+        error_reporting(0);
          ?>
         
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
@@ -107,13 +103,13 @@ if(isset($_POST['submit'])) {
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `staff` WHERE `role`='Manager' AND `area_sales_manager`='$_SESSION[area_sales_manager]'" ;
+$q = "SELECT * FROM `staff` WHERE `role`='Manager' AND `area_sales_manager` ='$_SESSION[Area_Sales_Manager]'" ;
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))
 {
   $sno=$sno+1;
-    echo '<tr id="'.$data['name'].'">
+    echo '<tr id="'.$data['id'].$sno.'">
           <td>'.$sno.'</td>
           <td>'.$data['id'].'</td>
           <td>'.$data['name'].'</td>
@@ -122,7 +118,7 @@ while($data=mysqli_fetch_assoc($d))
           <td>'.$data['state'].'</td>
           <td>'.$data['city'].'</td>
           <td>'.$data['role'].'</td>
-          <td><button id="'.$data['id'].$sno.'"  value="'.$data['name'].'"  onclick="return showData(this.value,'.$data['id'].$sno.',event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
+          <td><button  id="'.$data['id'].$sno.'jun"  value="'.$data['id'].$sno.'"  onclick="return showData(this.value,'.$data['id'].$sno.',event)" type="button" class="btn btn-outline-secondary btn-sm"  > <i class="fa-solid fa-plus"></i></button>
          </tr>
           ';
 
@@ -189,7 +185,7 @@ while($data=mysqli_fetch_assoc($d))
 
 function showData(id,btn,event)
 {
-  $("#"+btn).prop("disabled",true);
+  $("#"+id+"jun").prop("disabled",true);
  
     event.preventDefault();
     
@@ -219,7 +215,7 @@ $.ajax(
 <script>
 function showData1(id1,btn,event)
 {
-  $("#"+btn).prop("disabled",true);
+  $("#"+id1+"jun1").prop("disabled",true);
   
 
 event.preventDefault(); 
@@ -243,7 +239,7 @@ $.ajax(
 function showData2(id2,btn,event)
 {
 
-  $("#"+btn).prop("disabled",true);
+  $("#"+id2+"jun2").prop("disabled",true);
 event.preventDefault(); 
 
 $.ajax(
@@ -265,7 +261,7 @@ $.ajax(
 <script>
 function showData3(id3,btn,event)
 {
-  $("#"+btn).prop("disabled",true);
+  $("#"+id3+"jun3").prop("disabled",true);
   
 
 event.preventDefault(); 
@@ -288,7 +284,7 @@ $.ajax(
 <script>
 function showData4(id4,btn,event)
 {
-  $("#"+btn).prop("disabled",true);
+  $("#"+id4+"jun4").prop("disabled",true);
 event.preventDefault(); 
 
 
@@ -308,58 +304,7 @@ $.ajax(
 </script>
 
 
-<script>
-function showData5(id5,btn,event)
-{
-  $("#"+btn).prop("disabled",true);
 
-$.ajax(
-    {
-        url: "dataset.php",
-        type: 'POST',
-        data: {
-            "id5": id5, 
-        },
-        success: function (data){
-       $('#'+id5).after(data);
-        }
-    });
-    return false;
-}
-</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

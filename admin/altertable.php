@@ -1,4 +1,5 @@
 <?php
+   session_start();
 include("components/conn.php");
 if($_POST['status']=='enable')
 {

@@ -1,12 +1,13 @@
 <?php
 include("components/conn.php");
+session_start();
 
 
 
     
         
-            if(isset($_POST['id5'])){
-                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `group_team_leader`='$_POST[id5]'");
+            if(isset($_POST['id'])){
+                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `team_leader`='$_SESSION[Team_Leader]'");
                 
                 while($data=mysqli_fetch_assoc($d)){
                     if($data['role']=='Agent'){

@@ -73,8 +73,9 @@
     <div class="main-wrapper mdc-drawer-app-content">
       <!-- partial:partials/_navbar.html -->
       <?php
-         include("components/header.php");
+       //  include("components/header.php");
          error_reporting(0);
+         session_start();
          ?>
          <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">

@@ -3,6 +3,7 @@ include("components/conn.php");
 session_start();
 if (isset($_SESSION["agent"])) {
 
+  session_start();
 ?>
 
 <!DOCTYPE html>

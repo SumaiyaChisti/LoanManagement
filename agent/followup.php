@@ -3,7 +3,7 @@ include("components/conn.php");
 include("../vendor/autoload.php");
 include("mask.php");
 use PhpOffice\PhpSpreadsheet\IOFactory;
-session_start();
+
 if(isset($_POST['submit'])) 
 {
 

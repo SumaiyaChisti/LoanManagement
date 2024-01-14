@@ -83,7 +83,8 @@ include("components/conn.php");
   <div class="container pt-4">
     <h3 style="font-family: fancy monospace;" >Urban Money Reports &nbsp;&nbsp;&nbsp;&nbsp;
    <div class="row">
-    <?php 
+    <?php
+    session_start(); 
     $d=$conn->query("SELECT * FROM `staff` WHERE `role`=' Manager'"); 
     while($data=$d->fetch_assoc())  
     echo'<div class="col-2">

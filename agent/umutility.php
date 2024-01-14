@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
   

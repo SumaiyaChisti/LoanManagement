@@ -1,6 +1,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 if(isset($_POST['submit'])) {
     $q = "INSERT INTO `umutility`(`name`,`link`)VALUES ('$_POST[name]','$_POST[link]')";
     $d = mysqli_query($conn,$q);

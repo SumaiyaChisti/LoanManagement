@@ -1,4 +1,5 @@
 <?php
+
 function maskPhoneNumber($phoneNumber) {
     // Keep the last four digits visible
     $visibleDigits = 2;

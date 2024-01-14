@@ -1,5 +1,6 @@
 
 <?php
+
 include("components/conn.php");
 include("../vendor/autoload.php");
 include("mask.php");
@@ -195,8 +196,19 @@ error_reporting(0);
         </button>
       </div>
       <div class="modal-body">
-        <form enctype="multipart/form-data"method="post">
+        <form enctype="multipart/form-data" method="post">
         <input type="file" name="file1" accept=".xlsx">
+        <br>
+        <br>
+        <label for="fs">Select Campaign</label>
+        <select id="fs" class="form-select" name="camp"  required>
+          <option>Select Campaign</option>
+          <?php
+          $d=$conn->query("SELECT * FROM `campaign`");
+          while($r=mysqli_fetch_assoc($d))
+          echo'<option value="'.$r['name'].'">'.$r['name'].'</option>';
+          ?>
+        </select>
        
       </div>
       <div class="modal-footer">

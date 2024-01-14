@@ -2,6 +2,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 $sno=0;
 if(isset($_POST['id'])){
 $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager`='$_POST[id]'");

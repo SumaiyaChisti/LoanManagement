@@ -7,6 +7,7 @@ if(isset($_POST['submit'])) {
     $d = mysqli_query($conn,$q);
     
 }
+session_start();
 ?>
 
 <!DOCTYPE html>

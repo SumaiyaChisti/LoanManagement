@@ -67,6 +67,7 @@
       <!-- partial:partials/_navbar.html -->
       <?php
          include("components/header.php");
+         session_start();
          ?>
           <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">

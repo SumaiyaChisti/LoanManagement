@@ -1,5 +1,6 @@
 <?php
 include("components/conn.php");
+session_start();
 if(isset($_GET['id']))
 {
     $q = "DELETE FROM `staff` WHERE `id`='$_GET[id]'";

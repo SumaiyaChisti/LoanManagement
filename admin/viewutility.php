@@ -1,6 +1,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 if(isset($_POST['submit'])) {
   
     $q = "INSERT INTO `users`(`name`,`link`)VALUES ('$_POST[name]','$_POST[link]')";

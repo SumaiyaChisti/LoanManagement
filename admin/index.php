@@ -1,5 +1,6 @@
 <?php
 include("components/conn.php");
+session_start();
 $d=$conn->query("SELECT * FROM `leads`");
   $num=mysqli_num_rows($d);
 
@@ -8,6 +9,8 @@ $d=$conn->query("SELECT * FROM `leads`");
 
   $d=$conn->query("SELECT * FROM `leads` WHERE `Lead_Status`='Not Interested'");
   $num2=mysqli_num_rows($d);
+
+
 
 ?>
 

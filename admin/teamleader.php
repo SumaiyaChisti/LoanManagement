@@ -2,6 +2,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 // if(isset($_POST['submit'])) {
   
 //     $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";

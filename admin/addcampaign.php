@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +60,7 @@
          <!-- nav yaha hai -->
          <?php
          include("components/sidenav.php");
+        
          ?>
         </div>
         <div class="profile-actions">
@@ -73,7 +75,8 @@
     <div class="main-wrapper mdc-drawer-app-content">
       <!-- partial:partials/_navbar.html -->
       <?php
-         include("components/header.php");
+
+        // include("components/header.php");
          ?>
           <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">

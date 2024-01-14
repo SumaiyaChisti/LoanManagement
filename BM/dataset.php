@@ -6,7 +6,7 @@ $sno=0;
 
 
     if(isset($_POST['id'])){
-        $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager` ='$_SESSION[Zonal_Sales_Manager]'");
+        $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager` ='$_SESSION[Branch_Manager]'");
         
         while($data=mysqli_fetch_assoc($d)){
             if($data['role']=='Manager'){
@@ -32,7 +32,7 @@ $sno=0;
         }
         if(isset($_POST['id1'])){
 
-            $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager` ='$_SESSION[Zonal_Sales_Manager]'");
+            $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager` ='$_SESSION[Branch_Manager]' ");
             
             while($data=mysqli_fetch_assoc($d)){
                
@@ -59,7 +59,7 @@ $sno=0;
             }
             if(isset($_POST['id2'])){
 
-                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager` ='$_SESSION[Zonal_Sales_Manager]'");
+                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager` ='$_SESSION[Branch_Manager]'");
                 
                 while($data=mysqli_fetch_assoc($d)){
                    
@@ -85,7 +85,7 @@ $sno=0;
                 }
                 }
             if(isset($_POST['id3'])){
-                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `zonal_sales_manager` ='$_SESSION[Zonal_Sales_Manager]'");
+                $d=mysqli_query($conn,"SELECT * FROM `staff` WHERE `branch_manager` ='$_SESSION[Branch_Manager]'");
                 
                 while($data=mysqli_fetch_assoc($d)){
                     if($data['role']=='Agent'){

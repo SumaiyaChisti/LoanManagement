@@ -122,7 +122,7 @@ if(isset($_POST['submit']))
             </div>
             <div class="form-group mb-4">
             <div class="d-flex justify-content-between">
-              <a href="forgot">
+              <a href="forgotpassword.php">
                 <small>Forgot Password?</small>
               </a>
     </div>

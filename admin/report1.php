@@ -1,6 +1,7 @@
 
 <?php
 include("components/conn.php");
+session_start();
 
 
 ?>

@@ -53,6 +53,7 @@
          <?php
          include("components/sidenav.php");
          include("./components/conn.php");
+         session_start();
           function chart_count($status,$conn){
                 $dd=$conn->query("SELECT * FROM `leads` WHERE `lead_status`='$status'");
                 return mysqli_num_rows($dd);

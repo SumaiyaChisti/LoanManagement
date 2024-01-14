@@ -3,7 +3,7 @@ include("components/conn.php");
 
 include("mask.php");
 
-
+session_start();
   
 ?>
 <!DOCTYPE html>

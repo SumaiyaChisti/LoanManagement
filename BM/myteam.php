@@ -103,7 +103,7 @@ session_start();
 
 <?php
 include("components/conn.php");
-$q = "SELECT * FROM `staff` WHERE `role`='Area Sales Manager' AND `zonal_sales_manager` ='$_SESSION[Zonal_Sales_Manager]'" ;
+$q = "SELECT * FROM `staff` WHERE `role`='Area Sales Manager' AND `branch_manager` ='$_SESSION[Branch_Manager]'" ;
 $d=mysqli_query($conn, $q);
 $co=mysqli_num_rows($d);
 while($data=mysqli_fetch_assoc($d))

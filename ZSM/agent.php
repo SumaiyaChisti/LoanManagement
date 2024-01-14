@@ -7,6 +7,7 @@ include("components/conn.php");
 //     $d = mysqli_query($conn,$q);
     
 // }
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +92,7 @@ include("components/conn.php");
     $d=$conn->query("SELECT * FROM `staff` WHERE `role`='Agent' AND `group_team_leader` ='$_GET[name]'"); 
     while($data=$d->fetch_assoc())  
     echo'<div class="col-2">
-    <a href="customleads.php?name='.$data["name"].'">
+    <a href="customleads.php?name='.$data["email"].'">
         <div class="card">
             <div class="card-body text-center">
                 <i class="fa fa-user"></i>

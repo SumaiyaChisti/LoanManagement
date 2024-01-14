@@ -5,7 +5,7 @@ if(isset($_POST['submit'])) {
   
     $q = "INSERT INTO `umutility`(`name`)VALUES ('$_POST[name]')";
     $d = mysqli_query($conn,$q);
-    
+    session_start();  
 }
 ?>
 

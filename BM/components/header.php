@@ -29,7 +29,14 @@
                   <span class="figure">
                     <img src="assets/images/faces/face1.jpg" alt="user" class="user">
                   </span>
-                  <span class="user-name">Admin</span>
+                  <span class="user-name">
+                  <?php 
+                   
+                   $D=$conn->query("SELECT * FROM `staff` WHERE `email`='$_SESSION[Branch_Manager]'");
+                   $R=mysqli_fetch_assoc($D);
+                   echo $R['name'];
+                   ?>
+                  </span>
                 </span>
               </button>
               <div class="mdc-menu mdc-menu-surface" tabindex="-1">
