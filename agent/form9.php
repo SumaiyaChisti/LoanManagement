@@ -3,7 +3,7 @@
 session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `submitted_forms`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
+    $q = "INSERT INTO `form9`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhaar_card`,`residential_bill`,`relationship_proof`,`salary_slip`,`id_card`,`ITR`,`saving_banking`,`ongoing_loans`,`sale_agreement`,`chain_agreement`,`OC_CC`,`BMC`,`certificate`,`photographs`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[pan_card]','$_POST[aadhaar_card]','$_POST[residential_bill]','$_POST[relationship_proof]','$_POST[salary_slip]','$_POST[id_card]','$_POST[saving_banking]','$_POST[ongoing_loans]','$_POST[sale_agreement]','$_POST[chain_agreement]','$_POST[OC_CC]','$_POST[BMC]','$_POST[certificate]','$_POST[photographs]','$_POST[outstanding_letter]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '
@@ -209,59 +209,59 @@ if(isset($_POST['submit'])) {
     <h4 style="margin-top: 15px; color:blue" >Upload Documents</h4>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Pan Card Copy of Applicant And Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="pan_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Adhaar Card of Applicant & Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="aadhaar_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Residential Light And Telephone Bill Of (latest Month)(if rented then rent Agreement)</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="residential_billt"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Relationship Proof Of Applicant and Co-Applicant.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="relationship_proof"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 3 Months Salary Slip And last 2 years Form 16.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="salary_slip"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Offer Letter And Visiting Card Copy/ID card Copy</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="id_card"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Last 6 Months Saving Banking in Which Salary Is Credited.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="saving_banking"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">All On Going Loans Sanctions Letter And Repayment Track Record</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="ongoing_loans"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Sale Agreement/Draft Agreement( if it was Builder Purchase).</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="sale_agreement"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Chain Agreement Copy And Sale Agreement Copy(if it was Resale Property) . </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="chain_agreement"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">OC Copy/CC Copy. </h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="OC_CC"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">BMC Approved Plan Copy.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="BMC"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">Share Certificate Front And Back Side Copy.</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="certificate"  class="form-control form-control-lg" required />
     </div>
     <h6 style="margin-top: 15px; color:blue" class="form-label" for="formControlLg">3-4 photographs of Applicant And Co-Applicant</h6>
     <div class="form-outline mt-4">
-  <input type="file" id="formControlLg" name="bank_name"  class="form-control form-control-lg" required />
+  <input type="file" id="formControlLg" name="photographs"  class="form-control form-control-lg" required />
     </div>
    
 <h4 style="margin-top: 15px; color:blue" >Financial Refrences</h4>

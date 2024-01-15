@@ -1,8 +1,7 @@
 
 <?php
-session_start();
 include("components/conn.php");
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +14,6 @@ include("components/conn.php");
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="assets/css/download.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
@@ -39,6 +37,8 @@ include("components/conn.php");
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
   rel="stylesheet"
 />
+<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
 
 </head>
 
@@ -82,88 +82,51 @@ include("components/conn.php");
         <main class="content-wrapper">
         <main >
   <div class="container pt-4">
-    <h3 style="font-family: fancy monospace;color:blue;" >Urban Money Forms</h3>
+    <h3 style="font-family: fancy monospace;" >View Designation</h3>
     <br>
-   <table class="table  table-responsive table-hover ">
+    <table class="table  table-responsive table-bordered table-hover " style=" border: 1px solid white; " >
+<tr>
+  
+    
+    <th>Name</th>
+    
 
-   
-   <tr>
-  <td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr> <td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
-  <tr><td><button class="cssbuttons-io-button" data-toggle="modal" data-target="#exampleModalCenter">
-  
-  <i class="svgIcon fa-solid fa-upload"></i>&nbsp;
-  <span>Import</span>
-</button></td></tr>
+    
+
+    <th colspan="2">Options</th>
+    
 </tr>
 
-
-</div> 
 <?php
+include("components/conn.php");
+$q = "SELECT * FROM `form1`";
+$d=mysqli_query($conn, $q);
+$co=mysqli_num_rows($d);
+while($data=mysqli_fetch_assoc($d))
+{
+  $sno=$sno+1;
+    echo '<tr>
+         
+          
+          <td>'.$data['name'].'</td>
 
+          
+         
+         
+         
+         <td><a class="btn btn-primary"href="update.php?id='.$data['id'].'"><i class="fa-solid fa-pen"></i></a></td>
+         <td><a class="btn btn-primary" href="deletestaff.php?id='.$data['id'].'"><i class="fa-solid fa-trash"></i></a></td>
+         
+     </tr>';
+}
+
+//echo"Total Number of rows are " .$co;
 ?>
 
 </table>
-
-</form>
-
 </div>
 
 </main>
-
 
 <!--Main layout-->
           
@@ -177,31 +140,31 @@ include("components/conn.php");
           <?php
       include("components/footer.php");
       ?>
-          
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"></script>
+          <script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.js"
+></script>
+
+  <!-- plugins:js -->
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
   <script src="assets/vendors/chartjs/Chart.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
   <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
   <script src="assets/js/material.js"></script>
   <script src="assets/js/misc.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
   <script src="assets/js/dashboard.js"></script>
-
-<script type="text/javascript">
-   
-
-function copylink(e){
-      navigator.clipboard.writeText(e);
-      $("#liveToast").removeClass("hide")
-      $("#liveToast").addClass("show")
-      setTimeout(function(){
-      $("#liveToast").addClass("hide")
-      $("#liveToast").removeClass("show")
-    },1000)
-    }
+  <!-- End custom js for this page-->
+<script>
+    toast.show();
 
 
-    
+
 </script>
 
 </html>
