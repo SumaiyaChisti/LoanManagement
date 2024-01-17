@@ -3,7 +3,24 @@
 session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `form1`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhar_card`,`bill`,`salary_slip`,`id_card`,`six_months_banking`,`two_years_form16`,`official_email`,,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[pan_card]','$_POST[aadhaar_card]','$_POST[bill]','$_POST[salary_slip]','$_POST[id_card]','$_POST[six_months_banking]','$_POST[two_years_form16]','$_POST[official_email]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
+  $dir = "uploads/";
+  $fullpath = $dir . basename($_FILES['pan_card']['name']);
+  move_uploaded_file($_FILES['pan_card']['tmp_name'],$fullpath);
+  $fullpath1 = $dir . basename($_FILES['aadhaar_card']['name']);
+  move_uploaded_file($_FILES['aadhaar_card']['tmp_name'],$fullpath1);
+  $fullpath2 = $dir . basename($_FILES['bill']['name']);
+  move_uploaded_file($_FILES['bill']['tmp_name'],$fullpath2);
+  $fullpath3 = $dir . basename($_FILES['salary_slip']['name']);
+  move_uploaded_file($_FILES['salary_slip']['tmp_name'],$fullpath3);
+  $fullpath4 = $dir . basename($_FILES['id_card']['name']);
+  move_uploaded_file($_FILES['id_card']['tmp_name'],$fullpath4);
+  $fullpath5 = $dir . basename($_FILES['six_months_banking']['name']);
+  move_uploaded_file($_FILES['six_months_banking']['tmp_name'],$fullpath5);
+  $fullpath6 = $dir . basename($_FILES['two_years_form16']['name']);
+  move_uploaded_file($_FILES['two_years_form16']['tmp_name'],$fullpath6);
+  $fullpath7 = $dir . basename($_FILES['official_email']['name']);
+  move_uploaded_file($_FILES['official_email']['tmp_name'],$fullpath7);
+    $q = "INSERT INTO `form1`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhar_card`,`bill`,`salary_slip`,`id_card`,`six_months_banking`,`two_years_form16`,`official_email`,,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$fullpath','$fullpath1','$fullpath2','$fullpath3','$fullpath4','$fullpath5','$fullpath6','$fullpath7','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '

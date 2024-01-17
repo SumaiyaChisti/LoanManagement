@@ -3,7 +3,36 @@
 session_start();
 include("components/conn.php");
 if(isset($_POST['submit'])) {
-    $q = "INSERT INTO `form4`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhaar_card`,`residential_bill`,`office_bill`,`MOA_AOA`,`ITRfinancials_AuditReport`,`individual_ITR`,`GST_registration`,`individual_banking`.`list_of_directors`,`ongoing_loans`,`repayment`,`photographs`,`GST_3B`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$_POST[pan_card]','$_POST[aadhaar_card]','$_POST[residential_bill]','$_POST[office_bill]','$_POST[MOA_AOA]','$_POST[ITRfinancials_AuditReport]','$_POST[individual_ITR]','$_POST[GST_registration]','$_POST[individual_banking]','$_POST[list_of_directors]','$_POST[ongoing_loans]','$_POST[repayment]','$_POST[photographs]','$_POST[GST_3B]','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
+  $dir = "uploads/";
+  $fullpath = $dir . basename($_FILES['pan_card']['name']);
+  move_uploaded_file($_FILES['pan_card']['tmp_name'],$fullpath);
+  $fullpath1 = $dir . basename($_FILES['aadhaar_card']['name']);
+  move_uploaded_file($_FILES['aadhaar_card']['tmp_name'],$fullpath1);
+  $fullpath2 = $dir . basename($_FILES['residential_bill']['name']);
+  move_uploaded_file($_FILES['residential_bill']['tmp_name'],$fullpath2);
+  $fullpath3 = $dir . basename($_FILES['office_bill']['name']);
+  move_uploaded_file($_FILES['office_bill']['tmp_name'],$fullpath3);
+  $fullpath4 = $dir . basename($_FILES['MOA_AOA']['name']);
+  move_uploaded_file($_FILES['MOA_AOA']['tmp_name'],$fullpath4);
+  $fullpath5 = $dir . basename($_FILES['ITRfinancials_AuditReport']['name']);
+  move_uploaded_file($_FILES['ITRfinancials_AuditReport']['tmp_name'],$fullpath5);
+  $fullpath6 = $dir . basename($_FILES['individual_ITR']['name']);
+  move_uploaded_file($_FILES['individual_ITR']['tmp_name'],$fullpath6);
+  $fullpath7 = $dir . basename($_FILES['GST_registration']['name']);
+  move_uploaded_file($_FILES['GST_registration']['tmp_name'],$fullpath7);
+  $fullpath8 = $dir . basename($_FILES['individual_banking']['name']);
+  move_uploaded_file($_FILES['individual_banking']['tmp_name'],$fullpath8);
+  $fullpath9 = $dir . basename($_FILES['list_of_directors']['name']);
+  move_uploaded_file($_FILES['list_of_directors']['tmp_name'],$fullpath9);
+  $fullpath10 = $dir . basename($_FILES['ongoing_loans']['name']);
+  move_uploaded_file($_FILES['ongoing_loans']['tmp_name'],$fullpath10);
+  $fullpath11 = $dir . basename($_FILES['repayment']['name']);
+  move_uploaded_file($_FILES['repayment']['tmp_name'],$fullpath11);
+  $fullpath12 = $dir . basename($_FILES['photographs']['name']);
+  move_uploaded_file($_FILES['photographs']['tmp_name'],$fullpath12);
+  $fullpath13 = $dir . basename($_FILES['GST_3B']['name']);
+  move_uploaded_file($_FILES['GST_3B']['tmp_name'],$fullpath13);
+    $q = "INSERT INTO `form4`(`name`,`dob`,`gender`,`contact`,`email`,`address`,`pan_id`,`property_ownership`,`marital_status`,`place_of_work`,`job_title`,`work_address`,`years_employed`,`monthly_net_income`,`pan_card`,`aadhaar_card`,`residential_bill`,`office_bill`,`MOA_AOA`,`ITRfinancials_AuditReport`,`individual_ITR`,`GST_registration`,`individual_banking`.`list_of_directors`,`ongoing_loans`,`repayment`,`photographs`,`GST_3B`,`bank_name`,`branch_name`,`account_number`,`account_type`,`purpose_of_loan`,`requested_loan_amount`,`terms_in`,`status`,`class`)VALUES ('$_POST[name]','$_POST[dob]','$_POST[gender]','$_POST[contact]','$_POST[email]','$_POST[address]','$_POST[pan_id]','$_POST[property_ownership]','$_POST[marital_status]','$_POST[place_of_work]','$_POST[job_title]','$_POST[work_address]','$_POST[years_employed]','$_POST[monthly_net_income]','$fullpath','$fullpath1','$fullpath2','$fullpath3','$fullpath4','$fullpath5','$fullpath6','$fullpath7','$fullpath8','$fullpath9','$fullpath10','$fullpath11','$fullpath12','$fullpath13','$_POST[bank_name]','$_POST[branch_name]','$_POST[account_number]','$_POST[account_type]','$_POST[purpose_of_loan]','$_POST[requested_loan_amount]','$_POST[terms_in]','pending','badge-warning')";
     $d = mysqli_query($conn,$q);
     if ($d) {
         echo '

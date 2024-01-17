@@ -62,6 +62,7 @@ if(isset($_POST['submit'])) {
   <!-- End plugin css for this page -->
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/demo/style.css">
+  <link rel="stylesheet" href="assets/css/book.css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="assets/images/favicon.png" />
   <link
@@ -269,6 +270,11 @@ while($data=mysqli_fetch_assoc($d))
   <input type="submit" name="submit" id="formControlLg" class="btn btn-primary form-control-lg" value="Add" />
  
     </div>
+
+
+
+
+
     
     </form>
          </div>
